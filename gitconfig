@@ -1,0 +1,14 @@
+# git config common to all my personal computers
+# Nicolas Bossard 31 may 2018i
+#
+# This file can be colored using :set syntax=gitconfig
+#
+# This file should be included using : 
+# [core]
+#      path = ~/.
+#  
+
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
