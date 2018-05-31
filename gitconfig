@@ -12,3 +12,6 @@
 	editor = vim
 [diff]
 	tool = vimdiff
+[alias]
+	lg = log --oneline
+ 
