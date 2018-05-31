@@ -4,7 +4,7 @@
 # This file can be colored using :set syntax=gitconfig
 #
 # This file should be included in ~/.gitconfig by adding following lines : 
-# [core]
+# [include]
 #        path = ~/dotfiles/gitconfig
 #  
 
