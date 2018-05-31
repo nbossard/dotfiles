@@ -3,9 +3,9 @@
 #
 # This file can be colored using :set syntax=gitconfig
 #
-# This file should be included using : 
+# This file should be included in ~/.gitconfig by adding following lines : 
 # [core]
-#      path = ~/.
+#        path = ~/dotfiles/gitconfig
 #  
 
 [core]
