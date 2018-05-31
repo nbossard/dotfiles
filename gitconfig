@@ -14,4 +14,4 @@
 	tool = vimdiff
 [alias]
 	lg = log --oneline
- 
+	ad = add -v 
