@@ -12,6 +12,8 @@
 	editor = vim
 [diff]
 	tool = vimdiff
+[merge]
+	tool = vimdiff
 [alias]
 	lg = log --oneline
 	ad = add -v 
