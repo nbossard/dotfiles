@@ -2,6 +2,9 @@
 
 - install zsh 
      sudo apt install zsh
+- make zsh default shell
+  chsh -s $(which zsh)
+  and reboot
 - install powerline 
       sudo apt install powerline
 - install oh my zsh
