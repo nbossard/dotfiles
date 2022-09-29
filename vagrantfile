@@ -1,0 +1,91 @@
+# This is a vagrant file for creating a Virtual Development environment
+# Usage :
+# vagrant up
+# vagrant reload --provision
+# vagrant destroy
+Vagrant.configure("2") do |config|
+  config.vm.box = "gusztavvargadr/ubuntu-desktop"
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "private_network", ip: "192.168.56.10"
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    vb.memory = "4096"
+    vb.cpus = 4
+  end
+
+  # Update OS
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "updating OS"
+    sudo apt update
+    sudo apt upgrade
+  SHELL
+
+  # update vim to the latest version
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Updating vim"
+    sudo add-apt-repository ppa:jonathonf/vim
+    sudo apt update
+  SHELL
+
+  # Install Neovim
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing neovim"
+    sudo apt install software-properties-common -y
+    sudo add-apt-repository ppa:neovim-ppa/stable -y
+    sudo apt-get update
+    sudo apt install neovim -y
+  SHELL
+
+  # Install nodejs (required for coc.nvim)
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing nodejs"
+    sudo apt install nodejs -y
+  SHELL
+
+  # Install Golang
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing golang"
+    sudo apt install golang-go --assume-yes
+  SHELL
+
+  # Install chrome
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing chrome"
+    sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    sudo apt-get update
+    sudo apt-get install google-chrome-stable
+  SHELL
+
+  # Install password managers
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing password manager pass"
+    sudo apt install pass
+  SHELL
+
+  # Install bookmark manager
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing buku bookmark manager"
+    sudo apt-get install buku --assume-yes
+  SHELL
+
+  # Retrieving vim config from github
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Retrieving vim config from github"
+    git clone https://github.com/nbossard/dotvim.git ~/.vim
+    ln -s ~/.vim/vimrc ~/.vimrc
+    ln -s ~/.vim/vimrc ~/.ideavimrc
+    mkdir ~/.config/nvim
+    ln -s ~/.vim/vimrc ~/.config/nvim
+    cd ~/.vim
+  SHELL
+
+  # Install taskwarrior
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing taskwarrior"
+    sudo apt-get install buku --assume-yes
+  SHELL
+
+
+end
