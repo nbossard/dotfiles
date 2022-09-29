@@ -17,30 +17,59 @@ Vagrant.configure("2") do |config|
   # Update OS
   config.vm.provision "shell", inline: <<-SHELL
     echo "updating OS"
-    sudo apt update
-    sudo apt upgrade
+    sudo apt-get update --assume-yes
+    sudo apt-get upgrade --assume-yes
   SHELL
+
+  # Change language to french
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "changing language to french"
+    sudo apt-get install --assume-yes language-pack-fr
+    sudo update-locale LANG=fr_FR.UTF-8
+    sudo update-locale LANGUAGE=fr_FR.UTF-8
+    sudo update-locale LC_ALL=fr_FR.UTF-8
+    sudo update-locale LC_CTYPE=fr_FR.UTF-8
+    sudo update-locale LC_MESSAGES=POSIX
+    sudo update-locale LC_COLLATE=fr_FR.UTF-8
+    sudo update-locale LC_MONETARY=fr_FR.UTF-8
+    sudo update-locale LC_NUMERIC=fr_FR.UTF-8
+    sudo update-locale LC_TIME=fr_FR.UTF-8
+  SHELL
+
+  # Change keyboard layout to french mac
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "changing keyboard layout to french mac"
+    sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="fr"/g' /etc/default/keyboard
+    sudo sed -i 's/XKBVARIANT="mac"/XKBVARIANT="mac"/g' /etc/default/keyboard
+    sudo sed -i 's/XKBMODEL="pc105"/XKBMODEL="pc105"/g' /etc/default/keyboard
+    sudo sed -i 's/XKBOPTIONS=""/XKBOPTIONS=""/g' /etc/default/keyboard
+    sudo sed -i 's/BACKSPACE="guess"/BACKSPACE="guess"/g' /etc/default/keyboard
+    sudo sed -i 's/COMPOSEKEY=""/COMPOSEKEY=""/g' /etc/default/keyboard
+    sudo sed -i 's/TOGGLE=""/TOGGLE=""/g' /etc/default/keyboard
+  SHELL
+
 
   # update vim to the latest version
   config.vm.provision "shell", inline: <<-SHELL
     echo "Updating vim"
     sudo add-apt-repository ppa:jonathonf/vim
-    sudo apt update
+    sudo apt-get update
   SHELL
 
   # Install Neovim
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing neovim"
-    sudo apt install software-properties-common -y
+    sudo apt-get install software-properties-common -y
     sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo apt-get update
-    sudo apt install neovim -y
+    sudo apt-get install neovim -y
   SHELL
 
   # Install nodejs (required for coc.nvim)
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing nodejs"
-    sudo apt install nodejs -y
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
   SHELL
 
   # Install a good terminal font
