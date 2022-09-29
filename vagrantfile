@@ -43,6 +43,19 @@ Vagrant.configure("2") do |config|
     sudo apt install nodejs -y
   SHELL
 
+  # Install a good terminal font
+  # Such as : Hack Nerd Font Mono
+  # On mac :
+  # brew tap homebrew/cask-fonts
+  # brew install --cask font-hack-nerd-font
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing Hack Nerd Font Mono"
+    mkdir -p ~/.local/share/fonts
+    cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+    echo "TODO change font in term preferences"
+  SHELL
+
+
   # Install Golang
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing golang"
