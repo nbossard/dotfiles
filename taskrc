@@ -1,0 +1,81 @@
+# [Created by task 2.5.3 4/30/2021 09:31:30]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color theme (uncomment one to use)
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/light-16.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/light-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-16.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-red-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-green-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-blue-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-violets-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-gray-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/dark-gray-blue-256.theme
+# include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/solarized-dark-256.theme
+# include /usr/local/Cellar/task/2.6.1/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/solarized-light-256.theme
+#include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/no-color.theme
+
+uda.estimate.type=numeric
+uda.estimate.label=Est_min
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+
+# freecinc configuration
+taskd.server=freecinc.com:53589
+taskd.key=\/Users\/nbossard\/.task\/freecinc_ce544214.key.pem
+taskd.certificate=\/Users\/nbossard\/.task\/freecinc_ce544214.cert.pem
+taskd.ca=\/Users\/nbossard\/.task\/freecinc_ce544214.ca.pem
+taskd.credentials=FreeCinc\/freecinc_ce544214\/b4f92846-152d-43b7-98f9-8863eb112d67
+#
+# inthe.am configuration
+# taskd.certificate=\/Users\/nbossard\/.task\/inthe.am\/private.certificate.pem
+# taskd.key=\/Users\/nbossard\/.task\/inthe.am\/private.key.pem
+# taskd.ca=\/Users\/nbossard\/.task\/inthe.am\/ca.cert.pem
+# taskd.server=inthe.am:53589
+# taskd.credentials=inthe_am/nicolas.bossard/87b38ac4-0465-487f-816d-53cc70c60548
+# taskd.trust=strict
+
+news.version=2.6.0
+
+context.work.read=-PERSO and project.not:stage
+context.work.write=project:Mahali
+context.perso.read=+PERSO
+context.perso.write=+PERSO
+context.Lancieux.read=+PERSO and +Lancieux
+context.Lancieux.write=+PERSO and +Lancieux
+context.Betton.read=+PERSO and +Betton
+context.Betton.write=+PERSO and +Betton
+context.stage.read=project:stage
+context.stage.write=project:stage
+
+alias.daily=(end:yesterday or end:today) status:completed all
+alias.ddone=done
+alias.addd=add
+alias.c=context
+context=work
+
+calendar.holidays=full
+alias.dduplicate=duplicate
+context.copilot.read=+copilot
+context.copilot.write=+copilot
+alias.moddify=modify
