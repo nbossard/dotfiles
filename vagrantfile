@@ -124,20 +124,34 @@ Vagrant.configure("2") do |config|
 
   # Retrieving vim config from github
   config.vm.provision "shell", inline: <<-SHELL
+    set -x #echo on
     echo "Retrieving vim config from github"
-    git clone https://github.com/nbossard/dotvim.git ~/.vim
-    ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/vimrc ~/.ideavimrc
-    mkdir ~/.config/nvim
-    ln -s ~/.vim/vimrc ~/.config/nvim
-    cd ~/.vim
+    rm -rf /home/vagrant/.vim
+    git clone https://github.com/nbossard/dotvim.git /home/vagrant/.vim
+    ln -s /home/vagrant/.vim/vimrc /home/vagrant/.vimrc
+    ln -s /home/vagrant/.vim/vimrc /home/vagrant/.ideavimrc
+    mkdir /home/vagrant/.config/nvim
+    ln -s /home/vagrant/.vim/vimrc /home/vagrant/.config/nvim
+    cd /home/vagrant/.vim
+
+    echo "Install vim-plug"
+    su - Vagrant
+    echo "I am $USER, with uid $UID"'
+    curl -fLo /home/vagrant/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   SHELL
 
   # Install taskwarrior
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing taskwarrior"
     sudo apt-get install buku --assume-yes
+    echo "Linking to config of taskwarrior"
+    su - Vagrant
+    rm .taskrc
+    ln -s dotfiles/taskrc .taskrc
   SHELL
+
+  #
 
 
 end
