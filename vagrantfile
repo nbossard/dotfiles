@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing Hack Nerd Font Mono"
     mkdir -p ~/.local/share/fonts
-    cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+    cd ~/.local/share/fonts && curl -sfLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
     echo "TODO change font in term preferences"
   SHELL
 
@@ -91,7 +91,7 @@ Vagrant.configure("2") do |config|
   # brew install --cask wez/wezterm/wezterm
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing Wezterm"
-    curl -LO https://github.com/wez/wezterm/releases/download/20220905-102802-7d4b8249/wezterm-20220905-102802-7d4b8249.Ubuntu20.04.deb
+    curl -sLO https://github.com/wez/wezterm/releases/download/20220905-102802-7d4b8249/wezterm-20220905-102802-7d4b8249.Ubuntu20.04.deb
     sudo apt-get install -y ./wezterm-20220905-102802-7d4b8249.Ubuntu20.04.deb
   SHELL
 
