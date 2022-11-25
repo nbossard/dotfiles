@@ -3,17 +3,44 @@
 #
 # This file can be colored using :set syntax=gitconfig
 #
-# This file should be included in ~/.gitconfig by adding following lines : 
+# This file should be included in ~/.gitconfig by adding following lines :
 # [include]
 #        path = ~/dotfiles/gitconfig
-#  
+#
 
 [core]
 	editor = vim
-[diff]
-	tool = vimdiff
-[merge]
-	tool = vimdiff
+[user]
+	name = Nicolas Bossard
+	email = nicolas.bossard@orange.com
 [alias]
+	a = add -p
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
-	ad = add -v 
+	com = commit -vv
+	comp = commit -p -vv
+	amend = commit --amend -vv
+	amendd = commit --amendd -vv
+	amand = commit --amend -vv
+	gl = lg
+	addd= add
+	ad= add
+	conflicted = !vim +Conflicted
+[diff]
+	tool = nvim
+ 
+
+[difftool]
+	prompt = true
+[commit]
+	template = /Users/nbossard/.gitmessage
+[credential "https://gitlab.com"]
+	provider = generic
+[mergetool "vim-conflicted"]
+	cmd = vim +Conflicted
+[merge]
+	tool = vim-conflicted
+[credential]
+	helper =
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
