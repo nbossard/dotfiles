@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   # Update OS
   config.vm.provision "shell", inline: <<-SHELL
     echo "updating OS"
-    sudo apt-get update --assume-yes
+    sudo apt-get update -yes
     sudo apt-get upgrade --assume-yes
   SHELL
 
