@@ -15,8 +15,10 @@ Vagrant.configure("2") do |config|
     vb.cpus = 6
   end
 
-  # Mount local folder
+  # Mount local folders
   config.vm.synced_folder "/Users/nbossard/backend", "/home/vagrant/backend"
+  config.vm.synced_folder "/Users/nbossard/documentation", "/home/vagrant/documentation"
+  config.vm.synced_folder "/Users/nbossard/Downloads", "/home/vagrant/DownloadsHost"
 
   # Update OS
   config.vm.provision "shell", inline: <<-SHELL
