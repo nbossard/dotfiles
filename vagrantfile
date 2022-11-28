@@ -20,6 +20,10 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "/Users/nbossard/documentation", "/home/vagrant/documentation"
   config.vm.synced_folder "/Users/nbossard/Downloads", "/home/vagrant/DownloadsHost"
 
+  # port forwarding
+  # mongodb
+  config.vm.network "forwarded_port", guest: 27017, host: 27017
+
   # Update OS
   config.vm.provision "shell", inline: <<-SHELL
     echo "updating OS"
