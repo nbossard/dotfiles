@@ -197,11 +197,18 @@ Vagrant.configure("2") do |config|
     sudo apt-get install taskwarrior --assume-yes
     sudo rm -rf /home/vagrant/dotfiles
     echo "Retrieving vim config from github"
-    runuser -l vagrant -c 'git clone https://github.com/nbossard/dotfiles.git /home/vagrant/dotfiles'
+    runuser -l vagrant -c 'git clone https://github.com/nbossard/dotfiles.git /home/vagrant/dotfiles' 2> /dev/null
     echo "Linking to config of taskwarrior"
     # remove file if already exists without displaying an error
     rm .taskrc 2> /dev/null
     ln -s dotfiles/taskrc .taskrc
+  SHELL
+
+  # Configure git
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Configuring git"
+    rm .gitconfig 2> /dev/null
+    ln -s dotfiles/gitconfig .gitconfig
   SHELL
 
   # Install bat
