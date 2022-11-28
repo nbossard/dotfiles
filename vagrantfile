@@ -223,25 +223,30 @@ Vagrant.configure("2") do |config|
   # Install ripgrep
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing ripgrep"
-    sudo snap install ripgrep --classic
+    sudo snap install ripgrep --classic 2> /dev/null
   SHELL
 
   # Install docker
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing docker"
-    sudo snap install docker
+    sudo snap install docker 2> /dev/null
   SHELL
 
   # Install mongodb client
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing mongodb client"
-    sudo apt-get install mongodb-clients
+    sudo apt-get install mongodb-clients 2> /dev/null
   SHELL
 
   # Install gopls server
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing gopls server"
-    sudo snap install gopls --classic
+    sudo snap install gopls --classic 2> /dev/null
+  SHELL
+
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing gotop"
+    sudo snap install gotop --classic 2> /dev/null
   SHELL
 
 end
