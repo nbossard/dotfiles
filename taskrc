@@ -57,27 +57,37 @@ taskd.credentials=FreeCinc\/freecinc_ce544214\/b4f92846-152d-43b7-98f9-8863eb112
 
 news.version=2.6.0
 
+# ----------------------------- contexts -----------------------------
+
 context.work.read=-PERSO and project.not:stage
 context.work.write=project:Mahali
 context.work_urgent.read=-PERSO and project.not:stage and -formation and -place_improval and -datafollowup and -JeanCharles and -James and +UNBLOCKED
 context.work_urgent.write=project:Mahali
+
 context.perso.read=+PERSO
 context.perso.write=+PERSO
+
 context.Lancieux.read=+PERSO and +Lancieux
 context.Lancieux.write=+PERSO and +Lancieux
+
 context.Betton.read=+PERSO and +Betton
 context.Betton.write=+PERSO and +Betton
+
 context.stage.read=project:stage
 context.stage.write=project:stage
+
+context.copilot.read=+copilot
+context.copilot.write=+copilot
+
+context=perso
+
+# ----------------------------- aliases -----------------------------
 
 alias.daily=(end:yesterday or end:today) status:completed all
 alias.ddone=done
 alias.addd=add
 alias.c=context
-context=work_urgent
+alias.dduplicate=duplicate
+alias.moddify=modify
 
 calendar.holidays=full
-alias.dduplicate=duplicate
-context.copilot.read=+copilot
-context.copilot.write=+copilot
-alias.moddify=modify
