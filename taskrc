@@ -50,6 +50,13 @@ news.version=2.6.0
 calendar.holidays=full
 # TODO : retrieve a holiday calendar file, https://github.com/gorrioncillo/TaskwarriorHolidaysGcalendar
 
+# Changing priorities
+# To only have High, default or Low
+# Got suggestion here : https://youtu.be/zl68asL9jZA?t=1076
+uda.priority.values=H,,L
+urgency.uda.priority.L.coefficient=0
+urgency.uda.priority..coefficient=0
+
 # {{{ ---------------------------- Sync conf ----------------------------
 
 # freecinc configuration
