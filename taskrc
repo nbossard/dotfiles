@@ -1,4 +1,6 @@
 # [Created by task 2.5.3 4/30/2021 09:31:30]
+# vim: set foldmethod=marker foldlevel=0:
+#
 # Taskwarrior program configuration file.
 # For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
 # 'man task-sync' or 'man taskrc'
@@ -40,6 +42,16 @@ report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
+news.version=2.6.0
+
+# See https://manpages.ubuntu.com/manpages/impish/man5/taskrc.5.html
+# To display holidays in the calendar by color-coding the corresponding days
+# command : "task calendar"
+calendar.holidays=full
+# TODO : retrieve a holiday calendar file, https://github.com/gorrioncillo/TaskwarriorHolidaysGcalendar
+
+# {{{ ---------------------------- Sync conf ----------------------------
+
 # freecinc configuration
 taskd.server=freecinc.com:53589
 taskd.key=\/Users\/nbossard\/.task\/freecinc_ce544214.key.pem
@@ -55,9 +67,8 @@ taskd.credentials=FreeCinc\/freecinc_ce544214\/b4f92846-152d-43b7-98f9-8863eb112
 # taskd.credentials=inthe_am/nicolas.bossard/87b38ac4-0465-487f-816d-53cc70c60548
 # taskd.trust=strict
 
-news.version=2.6.0
-
-# ----------------------------- contexts -----------------------------
+# }}}
+# {{{ ----------------------------- contexts -----------------------------
 
 context.work.read=-PERSO and project.not:stage
 context.work.write=project:Mahali
@@ -81,7 +92,8 @@ context.copilot.write=+copilot
 
 context=perso
 
-# ----------------------------- aliases -----------------------------
+# }}}
+# {{{ ----------------------------- aliases -----------------------------
 
 alias.daily=(end:yesterday or end:today) status:completed all
 alias.ddone=done
@@ -90,4 +102,4 @@ alias.c=context
 alias.dduplicate=duplicate
 alias.moddify=modify
 
-calendar.holidays=full
+# }}}
