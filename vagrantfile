@@ -1,12 +1,15 @@
 # This is a vagrant file for creating a Virtual Development environment
+#
+# vim: foldmethod=indent:
+#
 # Usage :
 # vagrant init
 # vagrant up
 # vagrant reload --provision
 # vagrant destroy
 Vagrant.configure("2") do |config|
+  # cf : https://app.vagrantup.com/gusztavvargadr/boxes/ubuntu-desktop
   config.vm.box = "gusztavvargadr/ubuntu-desktop"
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "private_network", ip: "192.168.56.10"
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -23,6 +26,7 @@ Vagrant.configure("2") do |config|
   # port forwarding
   # mongodb
   config.vm.network "forwarded_port", guest: 27017, host: 27017
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   # Update OS
   config.vm.provision "shell", inline: <<-SHELL
