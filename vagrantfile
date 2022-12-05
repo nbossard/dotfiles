@@ -118,6 +118,17 @@ Vagrant.configure("2") do |config|
     Categories=System;TerminalEmulator;Utility" > /home/vagrant/org.wezfurlong.wezterm.desktop
   SHELL
 
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "generating config file for wezterm"
+    mkdir -p /home/vagrant/.config/wezterm
+    echo "local wezterm = require 'wezterm';
+    return {
+      color_scheme = 'Gruvbox Dark',
+      font = wezterm.font('Hack Nerd Font Mono'),
+      font_size = 12.0,
+    } " > /home/vagrant/.config/wezterm/config.lua
+  SHELL
+
   # Install zsh
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing zsh"
@@ -125,8 +136,6 @@ Vagrant.configure("2") do |config|
     echo "Creatting zshrc"
     touch ~/.zshrc
   SHELL
-
-
 
   # Install Golang
   config.vm.provision "shell", inline: <<-SHELL
