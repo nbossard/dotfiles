@@ -109,5 +109,6 @@ alias.addd=add
 alias.c=context
 alias.dduplicate=duplicate
 alias.moddify=modify
+alias.eddit=edit
 
 # }}}
