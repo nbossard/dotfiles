@@ -6,6 +6,17 @@
 # This file should be included in .profile or in .zshrc using:
 # source dotfiles/profile
 
+# {{{ ------------------------- [ Conf utilities ] -----------------------------
+
+# {{{ The fuck
+# NBO addition: auto correct of previous command
+# Usage : "lss -la"  <== command with a typo
+#         "fuck"     <== corrects the previous command
+eval $(thefuck --alias)
+# }}}
+
+# }}}
+
 # {{{ ------------------------- [ Aliases ] ------------------------- #
 
 # trying to replace basic "cat" command by more advanced software "bat"
@@ -37,5 +48,20 @@ alias day="timew day"
 alias status="git status"
 alias lg="git lg"
 alias lga="git lg --all"
+
+# Mac Only aliases
+if [[ "$(uname)" == "Darwin" ]]; then
+    # Do something under Mac OS X platform
+    alias safari="open -a safari"
+    alias chrome="open -a \"google chrome\""
+    alias firefox="open -a \"firefox\""
+    alias exchange="open -a Mail"
+    alias sms="open https://messages.google.com"
+    alias anki="open -a anki"
+    alias freeplane="open -a freeplane"
+    alias finder="open -a finder"
+    alias teams="open -a \"Microsoft Teams\""
+    alias vscode="open -a \"Visual Studio Code\""
+fi
 
 # }}}
