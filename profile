@@ -1,11 +1,12 @@
 # Bash profile common part to all my personal computers
 #
 # This file can be colored using :set syntax=bash
-# vim: set syntax=bash :
+# vim: set syntax=bash foldmethod=marker:
 #
-# This file should be included in .profile using
-# source dotfiles/profile:
+# This file should be included in .profile or in .zshrc using:
+# source dotfiles/profile
 
+# {{{ ------------------------- [ Aliases ] ------------------------- #
 
 # trying to replace basic "cat" command by more advanced software "bat"
 # See Bat on github :https://github.com/sharkdp/bat
@@ -29,8 +30,12 @@ alias cdd="cd"
 alias bk="buku"
 alias t="task"
 alias tt="task"
+alias to="taskopen"
+alias tui="taskwarrior-tui"
 alias tw="timew"
 alias day="timew day"
 alias status="git status"
 alias lg="git lg"
 alias lga="git lg --all"
+
+# }}}
