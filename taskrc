@@ -54,8 +54,9 @@ calendar.holidays=full
 # To only have High, default or Low
 # Got suggestion here : https://youtu.be/zl68asL9jZA?t=1076
 uda.priority.values=H,,L
+urgency.uda.priority.L.coefficient=3
 urgency.uda.priority.L.coefficient=0
-urgency.uda.priority..coefficient=0
+urgency.uda.priority..coefficient=1.8
 
 # {{{ ---------------------------- Sync conf ----------------------------
 
