@@ -109,7 +109,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     echo "Adding desktop shortcut for wezterm"
-    mkdir -p /home/vagrant/.local/share/applications
     echo "[Desktop Entry]
     Name=Wezterm
     Comment=Wez terminal emulator
@@ -117,7 +116,7 @@ Vagrant.configure("2") do |config|
     Icon=org.wezfurlong.wezterm
     Terminal=false
     Type=Application
-    Categories=System;TerminalEmulator;Utility" > /home/vagrant/org.wezfurlong.wezterm.desktop
+    Categories=System;TerminalEmulator;Utility" > /home/vagrant/Desktop/org.wezfurlong.wezterm.desktop
   SHELL
 
   config.vm.provision "shell", inline: <<-SHELL
