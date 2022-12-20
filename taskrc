@@ -112,6 +112,10 @@ alias.addd=add
 alias.c=context
 alias.dduplicate=duplicate
 alias.moddify=modify
+alias.addurgent= add priority:H due:today
+alias.urgent=addurgent
 alias.eddit=edit
+# Automatically add annotation using "En passant" feature : https://taskwarrior.org/docs/commands/done/#en-passant
+alias.merged=done Merged
 
 # }}}
