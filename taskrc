@@ -58,6 +58,8 @@ urgency.uda.priority.L.coefficient=3
 urgency.uda.priority.L.coefficient=0
 urgency.uda.priority..coefficient=1.8
 
+weekstart=Monday
+
 # {{{ ---------------------------- Sync conf ----------------------------
 
 # freecinc configuration
