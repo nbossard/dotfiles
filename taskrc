@@ -82,7 +82,7 @@ taskd.credentials=FreeCinc\/freecinc_ce544214\/b4f92846-152d-43b7-98f9-8863eb112
 
 context.work.read=-PERSO and project.not:stage
 context.work.write=project:Mahali
-context.work_urgent.read=-PERSO and project.not:stage and -formation and -place_improval and -datafollowup and -JeanCharles and -James and +UNBLOCKED
+context.work_urgent.read=-PERSO and project.not:stage and -Formation and -place_improval and -datafollowup and -JeanCharles and -James and +UNBLOCKED
 context.work_urgent.write=project:Mahali
 
 context.perso.read=+PERSO
