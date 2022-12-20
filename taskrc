@@ -104,6 +104,7 @@ context=perso
 
 # }}}
 # {{{ ----------------------------- aliases -----------------------------
+# See doc here: https://taskwarrior.org/docs/terminology/#alias
 
 alias.daily=(end:yesterday or end:today) status:completed all
 alias.ddone=done
