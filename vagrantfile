@@ -287,4 +287,15 @@ Vagrant.configure("2") do |config|
     " > /home/vagrant/Desktop/mongodb-compass.desktop
   SHELL
 
+  # Install lnav for browsing components logs
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing lnav"
+    sudo apt-get install lnav
+    # Todo install Mahali lnav file format
+    # copy file to /home/vagrant/.lnav/formats/installed
+    mkdir -p /home/vagrant/.lnav/formats/installed
+    cd /home/vagrant/.lnav/formats/installed
+    ln -s ../../../backend/mahalilogformat_lnav.json mahalilogformat_lnav.json
+  SHELL
+
 end
