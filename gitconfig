@@ -19,7 +19,7 @@
 	com = commit -vv
 	comp = commit -p -vv
 	amend = commit --amend -vv
-	amendd = commit --amendd -vv
+	amendd = commit --amend -vv
 	amand = commit --amend -vv
 	gl = lg
 	addd= add
