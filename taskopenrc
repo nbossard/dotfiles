@@ -1,0 +1,27 @@
+[General]
+taskbin=task
+taskargs
+no_annotation_hook="addnote $ID"
+task_attributes="priority,project,tags,description"
+--sort:"urgency-,annot"
+--active-tasks:"+PENDING"
+EDITOR=vim
+path_ext=~/taskopen/scripts
+
+[Actions]
+files.target=annotations
+files.labelregex=".*"
+files.regex="^[\\.\\/~]+.*\\.(.*)"
+files.command="open $FILE"
+files.modes="batch,any,normal"
+notes.target=annotations
+notes.labelregex=".*"
+notes.regex="^Notes\\.(.*)"
+notes.command="""editnote ~/Notes/tasknotes/$UUID.$LAST_MATCH "$TASK_DESCRIPTION" $UUID"""
+notes.modes="batch,any,normal"
+url.target=annotations
+url.labelregex=".*"
+Adding support for obsidian URLs
+url.regex="((?:www|http|obsidian).*)"
+url.command="open $LAST_MATCH"
+url.modes="batch,any,normal"
