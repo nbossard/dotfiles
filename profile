@@ -25,8 +25,14 @@ alias cat="bat"
 
 alias llll="tree -L 2 -C"
 
+# Git aliases
 alias dev="git checkout develop"
 alias develop="git checkout develop"
+alias ggit="git"
+alias lg="git lg"
+alias lga="git lg --all"
+alias pull="git pull"
+alias status="git status"
 
 # fuzzyfinder related config and alias
 alias fzh="history | fzf"
@@ -45,9 +51,6 @@ alias to="taskopen"
 alias tui="taskwarrior-tui"
 alias tw="timew"
 alias day="timew day"
-alias status="git status"
-alias lg="git lg"
-alias lga="git lg --all"
 
 # Mac Only aliases
 if [[ "$(uname)" == "Darwin" ]]; then
