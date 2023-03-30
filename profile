@@ -51,6 +51,7 @@ alias to="taskopen"
 alias tui="taskwarrior-tui"
 alias tw="timew"
 alias day="timew day"
+alias wrt="~/dotfiles/wezterm_rename_title.sh"
 
 # Mac Only aliases
 if [[ "$(uname)" == "Darwin" ]]; then
