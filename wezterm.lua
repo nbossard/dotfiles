@@ -3,6 +3,23 @@
 -- vim: set list foldmethod=syntax :
 
 local wezterm = require 'wezterm';
+local act = wezterm.action
+
+local config ={}
+
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+-- home defined config keys
+config.keys = {
+  { key = 'b', mods = 'CTRL', action = act.MoveTabRelative(-1), },
+  { key = 'n', mods = 'CTRL', action = act.MoveTabRelative(1), },
+}
+
+config.font_size = 15.0
 
 -- Function to allow renaming of tab
 -- see https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
@@ -46,7 +63,4 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 -- Generic configuration
-return {
-  font_size = 15.0
-}
-
+return config
