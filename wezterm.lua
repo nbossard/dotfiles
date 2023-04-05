@@ -15,8 +15,9 @@ end
 
 -- home defined config keys
 config.keys = {
-  { key = 'b', mods = 'CTRL', action = act.MoveTabRelative(-1), },
-  { key = 'n', mods = 'CTRL', action = act.MoveTabRelative(1), },
+  -- vim inspired commands
+  { key = 'h', mods = 'CTRL', action = act.MoveTabRelative(-1), },
+  { key = 'l', mods = 'CTRL', action = act.MoveTabRelative(1), },
 }
 
 config.font_size = 15.0
