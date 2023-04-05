@@ -43,6 +43,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     pane_bg_color = "green"
   elseif string.match(pane_title, "back") and string.match(pane_title, "office") then
     pane_bg_color = "pink"
+  elseif string.match(pane_title, "taskwarrior") then
+    pane_bg_color = "darkGrey"
+  elseif string.match(pane_title, "dotfiles") then
+    pane_bg_color = "lightGreen"
   else
     pane_bg_color = "black"
   end
