@@ -28,6 +28,7 @@ alias llll="tree -L 2 -C"
 # Git aliases
 alias dev="git checkout develop"
 alias develop="git checkout develop"
+alias master="git checkout master"
 alias ggit="git"
 alias lg="git lg"
 alias lga="git lg --all"
