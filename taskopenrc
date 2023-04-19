@@ -21,7 +21,6 @@ notes.command="""editnote ~/Notes/tasknotes/$UUID.$LAST_MATCH "$TASK_DESCRIPTION
 notes.modes="batch,any,normal"
 url.target=annotations
 url.labelregex=".*"
-Adding support for obsidian URLs
 url.regex="((?:www|http|obsidian).*)"
 url.command="open $LAST_MATCH"
 url.modes="batch,any,normal"

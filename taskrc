@@ -32,10 +32,6 @@ data.location=~/.task
 #include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.3/share/doc/task/rc/no-color.theme
 
-uda.estimate.type=numeric
-uda.estimate.label=Est_min
-uda.reviewed.type=date
-uda.reviewed.label=Reviewed
 
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
 report._reviewed.columns=uuid
@@ -50,32 +46,45 @@ news.version=2.6.0
 calendar.holidays=full
 # TODO : retrieve a holiday calendar file, https://github.com/gorrioncillo/TaskwarriorHolidaysGcalendar
 
+weekstart=Monday
+
+# {{{ ----------------------------- User defined attributes --------------
+
 # Changing priorities
 # To only have High, default or Low
 # Got suggestion here : https://youtu.be/zl68asL9jZA?t=1076
 uda.priority.values=H,,L
+
 urgency.uda.priority.L.coefficient=3
 urgency.uda.priority.L.coefficient=0
 urgency.uda.priority..coefficient=1.8
 
-weekstart=Monday
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
 
-# {{{ ---------------------------- Sync conf ----------------------------
+# https://taskwarrior.org/docs/udas/#example-estimate
+uda.estimate.type=numeric
+uda.estimate.label=Est_min
 
-# freecinc configuration
-taskd.server=freecinc.com:53589
-taskd.key=\/Users\/nbossard\/.task\/freecinc_ce544214.key.pem
-taskd.certificate=\/Users\/nbossard\/.task\/freecinc_ce544214.cert.pem
-taskd.ca=\/Users\/nbossard\/.task\/freecinc_ce544214.ca.pem
-taskd.credentials=FreeCinc\/freecinc_ce544214\/b4f92846-152d-43b7-98f9-8863eb112d67
+# }}}
+# {{{ ----------------------------- Reports ------------------------------
+
+# {{{ ----------------------------- Sync conf ----------------------------
+
+# freecinc configuration, closed in february 2023
+# taskd.server=freecinc.com:53589
+# taskd.key=\/Users\/nbossard\/.task\/freecinc_ce544214.key.pem
+# taskd.certificate=\/Users\/nbossard\/.task\/freecinc_ce544214.cert.pem
+# taskd.ca=\/Users\/nbossard\/.task\/freecinc_ce544214.ca.pem
+# taskd.credentials=FreeCinc\/freecinc_ce544214\/b4f92846-152d-43b7-98f9-8863eb112d67
 #
 # inthe.am configuration
-# taskd.certificate=\/Users\/nbossard\/.task\/inthe.am\/private.certificate.pem
-# taskd.key=\/Users\/nbossard\/.task\/inthe.am\/private.key.pem
-# taskd.ca=\/Users\/nbossard\/.task\/inthe.am\/ca.cert.pem
-# taskd.server=inthe.am:53589
-# taskd.credentials=inthe_am/nicolas.bossard/87b38ac4-0465-487f-816d-53cc70c60548
-# taskd.trust=strict
+taskd.certificate=\/Users\/nbossard\/.task\/inthe.am\/private.certificate.pem
+taskd.key=\/Users\/nbossard\/.task\/inthe.am\/private.key.pem
+taskd.ca=\/Users\/nbossard\/.task\/inthe.am\/ca.cert.pem
+taskd.server=inthe.am:53589
+taskd.credentials=inthe_am/nicolas.bossard/468b3e8f-9e8e-41d0-9b0c-b6a93ea9bcf0
+taskd.trust=strict
 
 # }}}
 # {{{ ----------------------------- contexts -----------------------------
@@ -90,17 +99,16 @@ context.perso.write=+PERSO
 
 context.Lancieux.read=+PERSO and +Lancieux
 context.Lancieux.write=+PERSO and +Lancieux
+context.perso_Lancieux.write=+PERSO and +Lancieux
 
-context.Betton.read=+PERSO and +Betton
-context.Betton.write=+PERSO and +Betton
+context.Betton.write=+PERSO and -Lancieux -IKEA -LeroyMerlin
+context.perso_Rennes.read=+PERSO and -Lancieux -IKEA -LeroyMerlin
 
-context.stage.read=project:stage
-context.stage.write=project:stage
+context.LeroyMerlin.read=+LeroyMerlin
+context.LeroyMerlin.write=+LeroyMerlin
 
-context.copilot.read=+copilot
-context.copilot.write=+copilot
-
-context=perso
+context.IKEA.read=+IKEA
+context.IKEA.write=+IKEA
 
 # }}}
 # {{{ ----------------------------- aliases -----------------------------
@@ -117,5 +125,25 @@ alias.urgent=addurgent
 alias.eddit=edit
 # Automatically add annotation using "En passant" feature : https://taskwarrior.org/docs/commands/done/#en-passant
 alias.merged=done Merged
+alias.gti=git
 
 # }}}
+# {{{ ----------------------------- taskopen related -----------------------------
+
+alias.addnote=execute ~/dotfiles/addnote
+
+# }}}
+# {{{ ----------------------------- hookaddannotation related --------------------
+# See nbossard plugin on github
+
+hookaddannotation.rule.r1={"prefix":"BOMR", "URL":"https://gitlab.tech.orange/mahali/mahali-back-office/-/merge_requests/"}
+hookaddannotation.rule.r1={"prefix":"MR", "URL":"https://gitlab.tech.orange/mahali/mahali-backend/-/merge_requests/"}
+hookaddannotation.rule.r2={"prefix":"ISS", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/issue/"}
+hookaddannotation.rule.r3={"prefix":"US", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
+hookaddannotation.rule.r4={"prefix":"TSK", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/task/"}
+hookaddannotation.rule.r5={"prefix":"clarity", "URL":"https://project-slb.sso.infra.ftgroup/pm/"}
+
+# }}}
+# {{{ ----------------------------- automatically added ---------------------------
+
+context=work_urgent
