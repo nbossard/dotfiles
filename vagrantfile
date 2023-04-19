@@ -250,7 +250,8 @@ Vagrant.configure("2") do |config|
   # Install mongodb client
   config.vm.provision "shell", inline: <<-SHELL
     echo "Installing mongodb client"
-    sudo apt-get install mongodb-clients 2> /dev/null
+    # -y stands for yes to all, auto accept questions
+    sudo apt-get -y install mongodb-clients 2> /dev/null
   SHELL
 
   # Install gopls server
@@ -270,7 +271,8 @@ Vagrant.configure("2") do |config|
     echo "Installing mongodb Compass"
     cd /tmp
     wget https://downloads.mongodb.com/compass/mongodb-compass_1.34.1_amd64.deb
-    sudo apt-get install ./mongodb-compass_1.34.1_amd64.deb
+    # -y stands for yes to all, auto accept questions
+    sudo apt-get -y install ./mongodb-compass_1.34.1_amd64.deb
   SHELL
 
   # Install desktop icon for compass
