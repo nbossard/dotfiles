@@ -16,6 +16,8 @@ Vagrant.configure("2") do |config|
     vb.gui = true
     vb.memory = "8192"
     vb.cpus = 6
+    # Enable bidirectional copy-paste
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
   end
 
   # Mount local folders
