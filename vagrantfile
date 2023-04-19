@@ -77,6 +77,10 @@ Vagrant.configure("2") do |config|
     sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo apt-get update
     sudo apt-get install neovim -y
+    echo "linking neovim to vim config folder"
+    sudo rm -rf /home/vagrant/.config/nvim
+    sudo ln -s /home/vagrant/.vim /home/vagrant/.config/nvim
+    sudo ln -s /home/vagrant/.vim/vimrc /home/vagrant/.vim/init.vim
   SHELL
 
   # Install nodejs (required for coc.nvim)
@@ -188,9 +192,6 @@ Vagrant.configure("2") do |config|
     ln -s /home/vagrant/.vim/vimrc /home/vagrant/.vimrc
     rm /home/vagrant/.ideavimrc
     ln -s /home/vagrant/.vim/vimrc /home/vagrant/.ideavimrc
-    rm -rf /home/vagrant/.config/nvim
-    mkdir /home/vagrant/.config/nvim
-    ln -s /home/vagrant/.vim/vimrc /home/vagrant/.config/nvim
     cd /home/vagrant/.vim
 
     echo "Install vim-plug"
