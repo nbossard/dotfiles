@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     echo "changing keyboard layout to french mac"
     sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="fr"/g' /etc/default/keyboard
-    sudo sed -i 's/XKBVARIANT="mac"/XKBVARIANT="mac"/g' /etc/default/keyboard
+    sudo sed -i 's/XKBVARIANT=""/XKBVARIANT="mac"/g' /etc/default/keyboard
     sudo sed -i 's/BACKSPACE="guess"/BACKSPACE="guess"/g' /etc/default/keyboard
   SHELL
 
