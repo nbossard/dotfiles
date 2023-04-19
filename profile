@@ -8,15 +8,7 @@
 
 # {{{ ------------------------- [ Conf utilities ] -----------------------------
 
-# {{{ The fuck
-# NBO addition: auto correct of previous command
-# Usage : "lss -la"  <== command with a typo
-#         "fuck"     <== corrects the previous command
-eval $(thefuck --alias)
 # }}}
-
-# }}}
-
 # {{{ ------------------------- [ Aliases ] ------------------------- #
 
 # trying to replace basic "cat" command by more advanced software "bat"
