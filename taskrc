@@ -141,7 +141,8 @@ hookaddannotation.rule.r1={"prefix":"MR", "URL":"https://gitlab.tech.orange/maha
 hookaddannotation.rule.r2={"prefix":"ISS", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/issue/"}
 hookaddannotation.rule.r3={"prefix":"US", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
 hookaddannotation.rule.r4={"prefix":"TSK", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/task/"}
-hookaddannotation.rule.r5={"prefix":"clarity", "URL":"https://project-slb.sso.infra.ftgroup/pm/"}
+hookaddannotation.rule.r5={"prefix":"STO", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
+hookaddannotation.rule.r6={"prefix":"clarity", "URL":"https://project-slb.sso.infra.ftgroup/pm/"}
 
 # }}}
 # {{{ ----------------------------- automatically added ---------------------------
