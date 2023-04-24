@@ -135,6 +135,7 @@ alias.addnote=execute ~/dotfiles/addnote
 # }}}
 # {{{ ----------------------------- hookaddannotation related --------------------
 # See nbossard plugin on github
+# https://github.com/nbossard/taskwarrior-hook-addannotation
 
 hookaddannotation.rule.r1={"prefix":"BOMR", "URL":"https://gitlab.tech.orange/mahali/mahali-back-office/-/merge_requests/"}
 hookaddannotation.rule.r1={"prefix":"MR", "URL":"https://gitlab.tech.orange/mahali/mahali-backend/-/merge_requests/"}
