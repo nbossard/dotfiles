@@ -60,6 +60,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias finder="open -a finder"
     alias teams="open -a \"Microsoft Teams\""
     alias vscode="open -a \"Visual Studio Code\""
+    alias obsidian="open -a \"Obsidian\""
 fi
 
 # }}}
