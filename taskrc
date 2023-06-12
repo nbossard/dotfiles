@@ -45,6 +45,12 @@ news.version=2.6.0
 # command : "task calendar"
 calendar.holidays=full
 # TODO : retrieve a holiday calendar file, https://github.com/gorrioncillo/TaskwarriorHolidaysGcalendar
+holiday.fr-FR0.name=Nouvel an
+holiday.fr-FR0.date=20240101
+holiday.fr-FR1.name=Fête nationale
+holiday.fr-FR1.date=20230714
+holiday.fr-FR2.name=15 août
+holiday.fr-FR2.date=20230815
 
 weekstart=Monday
 
