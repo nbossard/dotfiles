@@ -97,9 +97,9 @@ taskd.trust=strict
 # }}}
 # {{{ ----------------------------- contexts -----------------------------
 
-context.work.read=-PERSO and project.not:stage
+context.work.read=-PERSO and -Mattis
 context.work.write=project:Mahali
-context.work_urgent.read=-PERSO and project.not:stage and -Formation and -place_improval and -datafollowup and -JeanCharles and -James and +UNBLOCKED
+context.work_urgent.read=-PERSO and -Mattis and -Formation and -place_improval and -datafollowup and -JeanCharles and -James and +UNBLOCKED
 context.work_urgent.write=project:Mahali
 
 context.perso.read=+PERSO
@@ -117,6 +117,9 @@ context.LeroyMerlin.write=+LeroyMerlin
 
 context.IKEA.read=+IKEA
 context.IKEA.write=+IKEA
+
+context.Mattis.read=+Mattis
+context.Mattis.write=+Mattis
 
 # }}}
 # {{{ ----------------------------- aliases -----------------------------
