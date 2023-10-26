@@ -56,6 +56,12 @@ holiday.fr-FR2.date=20230815
 
 weekstart=Monday
 
+# {{{ ----------------------------- Urgency --------------------------------
+
+# Decrease urgency if annotation "Taiga" is present
+# Annotation Taiga means this task is followed in Taiga, so no stress
+urgency.user.tag.Taiga.coefficient=-2
+
 # {{{ ----------------------------- User defined attributes --------------
 
 # Changing priorities
@@ -77,6 +83,14 @@ uda.estimate.label=Est_min
 # }}}
 # {{{ ----------------------------- Reports ------------------------------
 
+# Modifying the list report to add the estimate column
+# Displaying the estimate column using "age" format. See doc : https://taskwarrior.org/docs/commands/columns/
+report.list.columns=id,start.age,entry.age,depends.indicator,priority,project,tags,recur.indicator,scheduled.countdown,due,until.remaining,description.count,urgency
+report.list.labels=ID,Active,Age,D,P,Project,Tags,R,Sch,Due,Until,Description,Urg
+
+report.next.legend=1
+
+# }}}
 # {{{ ----------------------------- Sync conf ----------------------------
 
 # freecinc configuration, closed in february 2023
@@ -159,4 +173,4 @@ hookaddannotation.rule.r6={"prefix":"clarity", "URL":"https://project-slb.sso.in
 # }}}
 # {{{ ----------------------------- automatically added ---------------------------
 
-context=work_urgent
+context=Mattis
