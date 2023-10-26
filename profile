@@ -39,6 +39,9 @@ alias lll="exa -la --icons --no-user --time-style long-iso"
 alias top="htop"
 alias cdd="cd"
 alias bk="buku"
+
+
+# Taskwarrior related speed-up aliases
 alias t="task"
 alias tt="task"
 alias to="taskopen"
@@ -46,6 +49,12 @@ alias tui="taskwarrior-tui"
 alias tw="timew"
 alias day="timew day"
 alias wrt="~/dotfiles/wezterm_rename_title.sh"
+alias none="task context none"
+alias work="task context work"
+alias pro="task context work"
+alias personal="task context perso"
+alias perso="task context perso"
+alias mattis="task context Mattis"
 
 # Mac Only aliases
 if [[ "$(uname)" == "Darwin" ]]; then
