@@ -112,9 +112,9 @@ taskd.trust=strict
 # {{{ ----------------------------- contexts -----------------------------
 
 context.work.read=-PERSO and -Mattis
-context.work.write=project:Mahali
+context.work.write=project:OMPSbKPI
 context.work_urgent.read=-PERSO and -Mattis and -Formation and -place_improval and -datafollowup and -JeanCharles and -James and +UNBLOCKED
-context.work_urgent.write=project:Mahali
+context.work_urgent.write=project:OMPSbKPI
 
 context.perso.read=+PERSO
 context.perso.write=+PERSO
