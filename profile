@@ -4,7 +4,7 @@
 # vim: set syntax=bash foldmethod=marker:
 #
 # This file should be included in .profile or in .zshrc using:
-# source dotfiles/profile
+# source ~/dotfiles/profile
 
 # {{{ ------------------------- [ Conf utilities ] -----------------------------
 
