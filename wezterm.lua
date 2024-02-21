@@ -20,7 +20,11 @@ config.keys = {
   { key = 'l', mods = 'CTRL', action = act.MoveTabRelative(1), },
 }
 
-config.font_size = 15.0
+config.font_size = 16.0
+-- changing the font
+-- moche :
+-- config.font = wezterm.font '0xProto Nerd Font'
+config.font = wezterm.font 'RobotoMono Nerd Font'
 
 -- Function to allow renaming of tab
 -- see https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
