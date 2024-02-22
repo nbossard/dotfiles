@@ -12,6 +12,9 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
+# Setting editor to neovim
+editor=nvim
+
 # Files
 data.location=~/.task
 
