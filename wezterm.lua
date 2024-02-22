@@ -22,9 +22,15 @@ config.keys = {
 
 config.font_size = 16.0
 -- changing the font
+-- See catalog :https://www.nerdfonts.com/font-downloads
+-- install using : brew tap homebrew/cask-fonts
+-- then
 -- moche :
+-- brew install --cask font-0xProto-nerd-font
 -- config.font = wezterm.font '0xProto Nerd Font'
-config.font = wezterm.font 'RobotoMono Nerd Font'
+-- Sympa : mais moins lisible que la fonte par défaut
+-- brew install --cask font-roboto-mono-nerd-font
+-- config.font = wezterm.font 'RobotoMono Nerd Font'
 
 -- Function to allow renaming of tab
 -- see https://wezfurlong.org/wezterm/config/lua/window-events/format-tab-title.html
