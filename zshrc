@@ -34,3 +34,5 @@ fi
 # See https://github.com/wting/autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+# editor to be used by pass (https://www.passwordstore.org/)
+export EDITOR="nvim"
