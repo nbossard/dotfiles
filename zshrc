@@ -34,5 +34,23 @@ fi
 # See https://github.com/wting/autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+
+# display info about nvim being in background
+function count_nvim_in_current_terminal() {
+    # Get the current terminal's TTY identifier
+    local current_tty=$(tty)
+
+    # Count the number of Neovim processes associated with this TTY
+    export NVIM_COUNT=$(ps -t "$current_tty" -o comm= | grep -c nvim)
+    # Same with label prefix for understandable display
+    # empty if NVIM_COUNT is 0
+    export NVIM_COUNT_LABEL=$([ "$NVIM_COUNT" -eq 0 ] && echo "" || echo "nvim:$NVIM_COUNT")
+}
+# Call the function whenever a new shell session is started
+count_nvim_in_current_terminal
+# and before each prompt display
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd count_nvim_in_current_terminal
+
 # editor to be used by pass (https://www.passwordstore.org/)
 export EDITOR="nvim"
