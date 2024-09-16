@@ -1,6 +1,8 @@
+# vim: set foldmethod=marker foldlevel=0:
 # NBO : THIS FILE SHOULD BE CALLED using "source /dotfiles/zshrc"
-# from .zshrc
-#
+# from ~/.zshrc
+# it contains zsh specific configuration, while profile is more generic
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
