@@ -38,6 +38,7 @@ fi
 
 
 # display info about nvim being in background
+# {{{
 function count_nvim_in_current_terminal() {
     # Get the current terminal's TTY identifier
     local current_tty=$(tty)
@@ -53,6 +54,28 @@ count_nvim_in_current_terminal
 # and before each prompt display
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd count_nvim_in_current_terminal
+#}}} --------------------------------------------
+
+# display warning about non optimal commands
+# {{{
+# Liste des commandes à bloquer
+blocked_commands=("rm -rf" "sudo rm -rf" "command_to_block")
+blocked_commands+=("git push --force") # use `git push --force-with-lease`
+
+# Fonction preexec pour vérifier les commandes
+function preexec() {
+  for cmd in "${blocked_commands[@]}"; do
+    if [[ "$1" == "$cmd"* ]]; then
+      echo "Commande bloquée : $cmd"
+      return 1
+    fi
+  done
+}
+
+# Ajouter le hook preexec
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec preexec
+# }}} ------------------------------------------
 
 # editor to be used by pass (https://www.passwordstore.org/)
 export EDITOR="nvim"
