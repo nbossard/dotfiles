@@ -10,6 +10,9 @@
 
 [core]
 	editor = nvim
+	# Définit git-delta comme le pager par défaut pour afficher les diffs.
+	# pour les commande qui produit un diff (comme git diff), delta sera utilisé pour afficher le résultat.
+	pager=delta
 [user]
 	name = Nicolas Bossard
 	email = nicolas.bossard@orange.com
@@ -28,6 +31,9 @@
 	conflicted = !vim +Conflicted
 [diff]
 	tool = nvim
+	# Active la coloration des lignes déplacées dans les diffs.
+	# default utilise les paramètres de coloration par défaut de delta.
+	colorMoved = default
  
 
 [difftool]
@@ -45,3 +51,10 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[interactive]
+	# Utilise delta avec l'option --color-only pour les diffs interactifs.
+	# (comme ceux utilisés dans git add -p)
+	diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+
