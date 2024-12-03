@@ -1,0 +1,18 @@
+// created on 2024-12-03 to disable trailingComma in jsonc files
+{
+	"overrides": [
+		{
+			"files": [
+				"*.jsonc",
+				"devcontainer.json",
+				"jsconfig.json",
+				"language-configuration.json",
+				"tsconfig.json"
+			],
+			"options": {
+				"parser": "json",
+				"trailingComma": "none"
+			}
+		}
+	]
+}
