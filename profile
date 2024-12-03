@@ -7,13 +7,14 @@
 # source ~/dotfiles/profile
 
 # {{{ ------------------------- [ Conf utilities ] -----------------------------
-
+alias python=python3
 # }}}
 # {{{ ------------------------- [ Aliases ] ------------------------- #
 
 # trying to replace basic "cat" command by more advanced software "bat"
 # See Bat on github :https://github.com/sharkdp/bat
 alias cat="bat"
+alias imgcat="wezterm imgcat"
 
 alias llll="tree -L 2 -C"
 
