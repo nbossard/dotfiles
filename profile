@@ -37,7 +37,12 @@ alias fzh="history | fzf"
 export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs --hidden'
 
 alias nv="nvim"
-alias lll="exa -la --icons --no-user --time-style long-iso"
+alias lll="eza \
+	   -la \
+	   --icons \
+	   --no-user \
+	   --time-style long-iso \
+	   --git"
 alias top="htop"
 alias cdd="cd"
 alias bk="buku"
