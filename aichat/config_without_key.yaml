@@ -1,0 +1,27 @@
+# this file should be in folder ~/Library/Application Support/aichat
+# but it is symlinked here
+#
+# see config example here : https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+clients:
+- type: openai-compatible
+  name: llmproxy
+  api_base: https://llmproxy.ai.orange
+  api_key: __OPENAI_API_KEY__
+  models:
+    - name: vertex_ai/claude3.5-sonnet-v2
+      max_input_tokens: 200000
+      supports_reasoning: false
+    - name: openai/gpt-4o-mini
+      max_input_tokens: 128000
+      supports_reasoning: false
+    - name: openai/gpt-4o
+      max_input_tokens: 128000
+      supports_reasoning: false
+    - name: vertex_ai/mistral-large
+      max_input_tokens: 128000
+      supports_reasoning: false
+    - name: vertex_ai/text-embedding-005
+      type: embedding
+
+
