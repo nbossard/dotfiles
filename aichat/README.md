@@ -14,4 +14,4 @@ ln -s ~/dotfiles/aichat/config.yaml ./config.yaml
 ```
 
 
-Also have  a look at roles defined by me here : [roles folder](./roles/README.md)
+Also have a look at roles defined by me here : [roles folder](./roles/README.md)
