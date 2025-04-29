@@ -1,3 +1,7 @@
+# vim: set filetype=conf list noexpandtab:
+# This is config file for taskopen
+# See https://github.com/jschlatow/taskopen
+
 [General]
 taskbin=task
 taskargs
