@@ -65,6 +65,7 @@ weekstart=Monday
 # Annotation Taiga means this task is followed in Taiga, so no stress
 urgency.user.tag.Taiga.coefficient=-2
 
+# }}}
 # {{{ ----------------------------- User defined attributes --------------
 
 # Changing priorities
