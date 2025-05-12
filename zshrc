@@ -77,5 +77,8 @@ autoload -Uz add-zsh-hook
 add-zsh-hook preexec preexec
 # }}} ------------------------------------------
 
+# to make eza (lll) use theme gruvbox
+export EZA_CONFIG_DIR="/Users/nbossard/dotfiles/eza"
+
 # editor to be used by pass (https://www.passwordstore.org/)
 export EDITOR="nvim"
