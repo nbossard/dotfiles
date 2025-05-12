@@ -43,6 +43,7 @@ alias lll="eza \
 	   --no-user \
 	   --time-style long-iso \
 	   --git"
+alias ll=lll
 alias top="htop"
 alias cdd="cd"
 alias bk="buku"
