@@ -92,3 +92,6 @@ export EZA_CONFIG_DIR="/Users/nbossard/dotfiles/eza"
 
 # editor to be used by pass (https://www.passwordstore.org/)
 export EDITOR="nvim"
+
+# to make docker tools like dockly use colima
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
