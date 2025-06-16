@@ -11,16 +11,25 @@ clients:
   models:
     - name: vertex_ai/claude3.5-sonnet-v2
       max_input_tokens: 200000
+      supports_function_calling: true
       supports_reasoning: false
     - name: openai/gpt-4o-mini
       max_input_tokens: 128000
       supports_reasoning: false
     - name: openai/gpt-4o
       max_input_tokens: 128000
+      supports_function_calling: true
       supports_reasoning: false
     - name: vertex_ai/mistral-large
       max_input_tokens: 128000
+      supports_function_calling: true
       supports_reasoning: false
+    - name: vertex_ai/gemini-1.5-flash
+      max_input_tokens: 1000000
+      supports_function_calling: true
+    - name: vertex_ai/gemini-2.0-flash
+      supports_function_calling: true
+      max_input_tokens: 1048576
     - name: vertex_ai/text-embedding-005
       type: embedding
 
