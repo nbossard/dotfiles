@@ -36,6 +36,16 @@ fi
 # See https://github.com/wting/autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+## Node Version Manager (nvm) related configuration
+# useful especially for working with kibana (which uses difference node versions in different branches)
+# usage samples :
+# 	nvm use
+# 	nvm install 20.13.2
+# {{{
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+#}}} --------------------------------------------
 
 # display info about nvim being in background
 # {{{
