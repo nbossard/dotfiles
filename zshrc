@@ -1,4 +1,4 @@
-# vim: set foldmethod=marker foldlevel=0:
+# vim: set filetype=bash foldmethod=marker foldlevel=0:
 # NBO : THIS FILE SHOULD BE CALLED using "source /dotfiles/zshrc"
 # from ~/.zshrc
 # it contains zsh specific configuration, while profile is more generic
