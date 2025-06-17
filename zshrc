@@ -47,7 +47,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 #}}} --------------------------------------------
 
-# display info about nvim being in background
+# compute info about nvim being in background
+# for use by powerline-go
 # {{{
 function count_nvim_in_current_terminal() {
     # Get the current terminal's TTY identifier
@@ -55,9 +56,19 @@ function count_nvim_in_current_terminal() {
 
     # Count the number of Neovim processes associated with this TTY
     export NVIM_COUNT=$(ps -t "$current_tty" -o comm= | grep -c nvim)
+
+    # Get the system-wide memory free percentage
+    local memory_free_percentage=$(memory_pressure | sed -n 's/.*System-wide memory free percentage: \([0-9]*\)%.*/\1/p')
+    # Export the percentage for use in the prompt
+    export MEMORY_FREE_PERCENTAGE=$memory_free_percentage
+
     # Same with label prefix for understandable display
     # empty if NVIM_COUNT is 0
-    export NVIM_COUNT_LABEL=$([ "$NVIM_COUNT" -eq 0 ] && echo "" || echo "nvim:$NVIM_COUNT")
+    local nvim_label=$([ "$NVIM_COUNT" -eq 0 ] && echo "" || echo "nvim:$NVIM_COUNT")
+    local mem_label=$([ " $MEMORY_FREE_PERCENTAGE" -gt 50 ] && echo "" || echo "Mem:$MEMORY_FREE_PERCENTAGE%%")
+
+    # Combine the labels
+    export NVIM_COUNT_LABEL="$nvim_label$mem_label"
 }
 # Call the function whenever a new shell session is started
 count_nvim_in_current_terminal
