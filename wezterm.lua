@@ -37,9 +37,11 @@ config.font_size = 16.0
 -- See https://github.com/wez/wezterm/issues/522#issuecomment-902203635
 -- usage ~/dotfiles/rename_wezterm_title.sh newname
 -- hover boolean means mouse is over the tab title
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+wezterm.on("format-tab-title", function(tab)
   local pane_title = tab.active_pane.title
   local user_title = tab.active_pane.user_vars.panetitle
+  local pane_bg_color
+  local pane_fg_color
 
   if user_title ~= nil and #user_title > 0 then
     pane_title = user_title
@@ -51,6 +53,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   elseif string.match(pane_title, "backend") then
     pane_bg_color = "orange"
   elseif string.match(pane_title, "vimrc") then
+    pane_bg_color = "green"
+  elseif string.match(pane_title, "dotvim") then
     pane_bg_color = "green"
   elseif string.match(pane_title, "back") and string.match(pane_title, "office") then
     pane_bg_color = "pink"
