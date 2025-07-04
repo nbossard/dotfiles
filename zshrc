@@ -14,6 +14,9 @@ plugins=(git vi-mode)
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
+# required for homebrew command line tools to be available
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # NBO : my conf of powerline-go
 source ~/dotfiles/powerline-go.sh
 
@@ -104,5 +107,23 @@ export EZA_CONFIG_DIR="/Users/nbossard/dotfiles/eza"
 # editor to be used by pass (https://www.passwordstore.org/)
 export EDITOR="nvim"
 
+# Trying to use carapace for smarted completion (tab press)
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
+zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+
 # to make docker tools like dockly use colima
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
+# to make cargo (rust) installed applications work
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# NBO pipx addition (for language servers)
+export PATH="$PATH:/Users/nbossard/.local/bin"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+eval $(thefuck --alias)
+export PATH="$HOME/go/bin:$PATH"
