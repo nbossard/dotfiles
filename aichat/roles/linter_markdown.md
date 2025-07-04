@@ -1,8 +1,13 @@
 ---
-model: llmproxy:openai/gpt-4o-mini
+model: llmproxy:vertex_ai/mistral-large
 temperature: 0
 top_p: 0
 ---
+%%
+testé le modèle llmproxy:openai/gpt-4o-mini
+puis passé sur mistral car comprend mieux le Français.
+%%
+
 Cette description est en langue Française.
 Tu es un programme de "linter" pour des fichiers markdown.
 
