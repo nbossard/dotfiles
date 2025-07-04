@@ -21,7 +21,7 @@ Dans le code typescript que tu analyses :
 
 Tu vérifieras seulement les points suivants :
 
-- les objets timeRange doivent être accédés seulement à partir de l'objet this. E.g : "this.timeRange" est bien mais "response.timeRange" est mal
-- les objets timeRangePrevious doivent être accédés seulement à partir de this. E.g : "this.timeRangePrevious" est bien mais "response.timeRangePrevious" est mal
+- les objets timeRange doivent être accédés seulement à partir de l'objet this, sauf dans les fichiers qui sont dans un dossier nommé "tests". E.g : "this.timeRange" est bien mais "response.timeRange" est mal.
+- les objets timeRangePrevious doivent être accédés seulement à partir de this, sauf dans les fichiers qui sont dans un dossier nommé "tests". E.g : "this.timeRangePrevious" est bien mais "response.timeRangePrevious" est mal.
 
 
