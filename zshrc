@@ -113,7 +113,7 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 
-# to make docker tools like dockly use colima
+# to allow docker tools like dockly to be able to use colima
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
 # to make cargo (rust) installed applications work
