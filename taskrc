@@ -41,7 +41,7 @@ report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 
-news.version=2.6.0
+news.version=3.4.1
 
 # See https://manpages.ubuntu.com/manpages/impish/man5/taskrc.5.html
 # To display holidays in the calendar by color-coding the corresponding days
