@@ -123,7 +123,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:/Users/nbossard/.local/bin"
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 eval $(thefuck --alias)
 export PATH="$HOME/go/bin:$PATH"
