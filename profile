@@ -47,6 +47,7 @@ alias ll=lll
 alias top="htop"
 alias cdd="cd"
 alias bk="buku"
+alias ol="obsidian-logging"
 
 
 # Taskwarrior related speed-up aliases
