@@ -1,0 +1,13 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "NBossard"
+email = "nicolas.bossard@machboboss.ovh"
+
+[ui]
+editor = "nvim"
+paginate = "never"
+
+[aliases]
+# jj log --limit 15
+l = ["log","--limit", "14"]
