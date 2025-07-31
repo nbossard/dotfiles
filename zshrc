@@ -112,14 +112,13 @@ zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'exter
 # to allow docker tools like dockly to be able to use colima
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
-# to make cargo (rust) installed applications work
-export PATH="$HOME/.cargo/bin:$PATH"
+# to allow cargo (rust) installed applications to be found
+export PATH="/Users/nbossard/.cargo/bin":$PATH
 
-# NBO pipx addition (for language servers)
-export PATH="$PATH:/Users/nbossard/.local/bin"
+# set go related env vars, required for example by treesitter parser in neovim
+export GOPATH=$(go env GOPATH)
+export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
 
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
-
-eval $(thefuck --alias)
-export PATH="$HOME/go/bin:$PATH"
+# Enable zsh-autosuggestions, installed via homebrew
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
