@@ -92,7 +92,20 @@ fi
 # }}}
 # {{{ ------------------------- [ Conf utilities ] -----------------------------
 
+# to make cargo (rust) installed applications work
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# NBO pipx addition (for language servers)
+export PATH="$PATH:/Users/nbossard/.local/bin"
+
 # required for homebrew command line tools to be available
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# set go related env vars, required for example by treesitter parser in neovim
+export GOPATH=$(go env GOPATH)
+export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
+
+# the fuck tool
+eval $(thefuck --alias)
 # }}}
