@@ -14,9 +14,6 @@ plugins=(git vi-mode)
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
-# required for homebrew command line tools to be available
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # NBO : my conf of powerline-go
 source ~/dotfiles/powerline-go.sh
 
