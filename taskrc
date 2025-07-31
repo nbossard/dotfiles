@@ -166,15 +166,16 @@ alias.addnote=execute ~/dotfiles/addnote
 # See nbossard plugin on github
 # https://github.com/nbossard/taskwarrior-hook-addannotation
 
-hookaddannotation.rule.r1={"prefix":"BOMR", "URL":"https://gitlab.tech.orange/mahali/mahali-back-office/-/merge_requests/"}
-hookaddannotation.rule.r1={"prefix":"MR", "URL":"https://gitlab.tech.orange/mahali/mahali-backend/-/merge_requests/"}
-hookaddannotation.rule.r2={"prefix":"ISS", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/issue/"}
-hookaddannotation.rule.r3={"prefix":"US", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
-hookaddannotation.rule.r4={"prefix":"TSK", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/task/"}
-hookaddannotation.rule.r5={"prefix":"STO", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
-hookaddannotation.rule.r6={"prefix":"clarity", "URL":"https://project-slb.sso.infra.ftgroup/pm/"}
+# hookaddannotation.rule.r1={"prefix":"BOMR", "URL":"https://gitlab.tech.orange/mahali/mahali-back-office/-/merge_requests/"}
+# hookaddannotation.rule.r1={"prefix":"MR", "URL":"https://gitlab.tech.orange/mahali/mahali-backend/-/merge_requests/"}
+# hookaddannotation.rule.r2={"prefix":"ISS", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/issue/"}
+# hookaddannotation.rule.r3={"prefix":"US", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
+# hookaddannotation.rule.r4={"prefix":"TSK", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/task/"}
+# hookaddannotation.rule.r5={"prefix":"STO", "URL":"https://taiga.tech.orange/project/thommil-mahali-poc/us/"}
+hookaddannotation.rule.r1={"prefix":"clarity", "URL":"https://project-slb.sso.infra.ftgroup/pm/"}
+hookaddannotation.rule.r2={"prefix":"JIRA:OMD-", "URL":"https://portail.agir.orange.com/browse/OMD-"}
 
 # }}}
 # {{{ ----------------------------- automatically added ---------------------------
 
-context=Mattis
+context=work

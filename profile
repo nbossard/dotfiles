@@ -90,3 +90,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # }}}
+# {{{ ------------------------- [ Conf utilities ] -----------------------------
+
+# required for homebrew command line tools to be available
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# }}}
