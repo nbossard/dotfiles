@@ -1,3 +1,4 @@
+# vim: set list:
 # Bash profile common part to all my personal computers
 #
 # This file can be colored using :set syntax=bash
@@ -38,12 +39,19 @@ export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs --hidden'
 
 alias nv="nvim"
 alias lll="eza \
-	   -la \
+	   -l \
 	   --icons \
 	   --no-user \
 	   --time-style long-iso \
 	   --git"
 alias ll=lll
+alias lla=la
+alias la="eza \
+	   -la \
+	   --icons \
+	   --no-user \
+	   --time-style long-iso \
+	   --git"
 alias top="htop"
 alias cdd="cd"
 alias bk="buku"
