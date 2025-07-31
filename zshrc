@@ -47,8 +47,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 #}}} --------------------------------------------
 
-# compute info about nvim being in background
-# for use by powerline-go
+# display info about nvim being in background
 # {{{
 function count_nvim_in_current_terminal() {
     # Get the current terminal's TTY identifier
