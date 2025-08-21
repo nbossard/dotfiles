@@ -123,3 +123,8 @@ export PATH=$GOBIN:$PATH
 # Enable zsh-autosuggestions, installed via homebrew
 # See : https://github.com/zsh-users/zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Enable zsh-syntax-highlighting, installed via homebrew
+# See : https://github.com/zsh-users/zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
