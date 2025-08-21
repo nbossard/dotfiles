@@ -121,4 +121,5 @@ export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 
 # Enable zsh-autosuggestions, installed via homebrew
+# See : https://github.com/zsh-users/zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
