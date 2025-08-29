@@ -81,5 +81,24 @@ wezterm.on("format-tab-title", function(tab)
   }
 end)
 
+-- Launch programs at startup automatically
+-- quiet tricky, solution found here : https://github.com/wezterm/wezterm/issues/3646
+wezterm.on('gui-startup', function()
+  local _, another_pane, window = wezterm.mux.spawn_window {}
+  another_pane:send_text "cd dotfiles\nwrt dotfiles\nnvim\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd dotvim\nwrt dotvim\nnvim\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "colima start -f\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "wrt tabby;tabby serve --device metal --model StarCoder-3B\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd PilotageDistri/business-server\nwrt bs-main\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd PilotageDistri/business-server-dev\nwrt bs-dev\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd PilotageDistri/business-server-taggage\nwrt bs-tag\n"
+end)
+
 -- Generic configuration
 return config
