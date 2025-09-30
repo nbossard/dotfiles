@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "llmproxy": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LLM Proxy",
+      "options": {
+        "baseURL": "https://llmproxy.ai.orange",
+      },
+      "models": {
+        "vertex_ai/claude3.5-sonnet-v2": {
+          "name": "Claude Sonnet 3.5",
+          "limit": {"output": 8192, "context": 200000}
+        },
+	"vertex_ai/gemini-2.0-flash": {
+          "name": "Gemini 2 Flash",
+          "limit": {"output": 8192, "context": 1048576}
+        }
+
+      }
+    }
+  },
+  "model": "llmproxy/vertex_ai/gemini-2.0-flash"
+}
