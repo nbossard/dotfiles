@@ -87,6 +87,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias teams="open -a \"Microsoft Teams\""
     alias vscode="open -a \"Visual Studio Code\""
     alias obsidian="open -a \"Obsidian\""
+
+    # replacing mac provided version by
+    # less old versions of gnu programs
+    # installed via brew install util-linux
+    alias cal="/opt/homebrew/opt/util-linux/bin/cal -m"
 fi
 
 # }}}
