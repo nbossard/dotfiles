@@ -128,3 +128,10 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # See : https://github.com/zsh-users/zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# run help local while typing, prefer "help" to "man", but "man as fallback"
+# ref : https://postgresqlstan.github.io/cli/zsh-run-help/
+# check config : `bindkey | grep run-help`
+autoload -Uz run-help
+HELPDIR="/usr/share/zsh/$(zsh --version | cut -d' ' -f2)/help"
+bindkey '^[h' run-help # option+h
+
