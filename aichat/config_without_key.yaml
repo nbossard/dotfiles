@@ -9,7 +9,7 @@ clients:
   api_base: https://llmproxy.ai.orange
   api_key: __OPENAI_API_KEY__
   models:
-    - name: vertex_ai/claude3.5-sonnet-v2
+    - name: vertex_ai/claude3.7-sonnet-v2
       max_input_tokens: 200000
       supports_function_calling: true
       supports_reasoning: false
