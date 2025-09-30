@@ -21,6 +21,8 @@ config.keys = {
 }
 
 config.font_size = 16.0
+-- Wezterm changing the default fonts : https://wezterm.org/config/fonts.html
+--
 -- changing the font
 -- See catalog :https://www.nerdfonts.com/font-downloads
 -- install using : brew tap homebrew/cask-fonts
@@ -89,7 +91,11 @@ wezterm.on('gui-startup', function()
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd dotvim\nwrt dotvim\nnvim\n"
   _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd perso/llm-functions\nwrt llm-functions\nnvim\n"
+  _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "colima start -f\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "wrt docker\ndocker start elasticsearch-8.17.5"
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "wrt tabby;tabby serve --device metal --model StarCoder-3B\n"
   _, another_pane, _ = window:spawn_tab {}
@@ -98,6 +104,10 @@ wezterm.on('gui-startup', function()
   another_pane:send_text "cd PilotageDistri/business-server-dev\nwrt bs-dev\n"
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd PilotageDistri/business-server-taggage\nwrt bs-tag\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd my-security-partner/chatbot\nwrt chatbot\n"
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd my-security-partner/gsma-bot-server\nwrt GSMA\n"
 end)
 
 -- Generic configuration
