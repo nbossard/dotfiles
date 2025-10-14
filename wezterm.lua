@@ -96,8 +96,9 @@ wezterm.on('gui-startup', function()
   another_pane:send_text "colima start -f\n"
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "wrt docker\ndocker start elasticsearch-8.17.5"
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt tabby;tabby serve --device metal --model StarCoder-3B\n"
+  -- Replaced by github copilot
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "wrt tabby;tabby serve --device metal --model StarCoder-3B\n"
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd PilotageDistri/business-server\nwrt bs-main\n"
   _, another_pane, _ = window:spawn_tab {}
