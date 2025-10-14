@@ -114,3 +114,5 @@ export PATH=$GOBIN:$PATH
 # the fuck tool
 eval $(thefuck --alias)
 # }}}
+#
+source ~/dotfiles/AI_API_KEYS.sh
