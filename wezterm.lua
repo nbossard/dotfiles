@@ -52,18 +52,24 @@ wezterm.on("format-tab-title", function(tab)
   -- if pane_title contains "documentation" then change the background color
   if string.match(pane_title, "documentation") then
     pane_bg_color = "purple"
-  elseif string.match(pane_title, "backend") then
-    pane_bg_color = "orange"
-  elseif string.match(pane_title, "vimrc") then
-    pane_bg_color = "green"
   elseif string.match(pane_title, "dotvim") then
     pane_bg_color = "green"
-  elseif string.match(pane_title, "back") and string.match(pane_title, "office") then
-    pane_bg_color = "pink"
-  elseif string.match(pane_title, "taskwarrior") then
-    pane_bg_color = "darkGrey"
   elseif string.match(pane_title, "dotfiles") then
     pane_bg_color = "lightGreen"
+  elseif string.match(pane_title, "obsperso") then
+    pane_bg_color = "orange"
+  elseif string.match(pane_title, "colima") or string.match(pane_title, "docker") then
+    pane_bg_color = "grey"
+  -- Pay metrics
+  elseif string.match(pane_title, "bs.main") or string.match(pane_title, "bs.dev") or string.match(pane_title, "bs.tag") then
+    pane_bg_color = "brown"
+  elseif string.match(pane_title, "transform.vi.") then
+    pane_bg_color = "#731d1d"
+  -- MSP project
+  elseif string.match(pane_title, "chatbot") or string.match(pane_title, "chatbot-dev") or string.match(pane_title, "GSMA")  or string.match(pane_title, "validation")then
+    pane_bg_color = "pink"
+  elseif string.match(pane_title, "copilot") then
+    pane_bg_color = "cyan"
   else
     pane_bg_color = "black"
   end
