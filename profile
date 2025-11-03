@@ -87,6 +87,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias teams="open -a \"Microsoft Teams\""
     alias vscode="open -a \"Visual Studio Code\""
     alias obsidian="open -a \"Obsidian\""
+    # alias gg="open -a \"gg\"" # old version does not support auto opening of current folder
+    alias gg="/Applications/gg.app/Contents/MacOS/gg . &"
+    alias ggn="open -n -a \"gg\""
 
     # replacing mac provided version by
     # less old versions of gnu programs
