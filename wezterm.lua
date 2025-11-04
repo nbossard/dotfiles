@@ -63,8 +63,11 @@ wezterm.on("format-tab-title", function(tab)
   -- Pay metrics
   elseif string.match(pane_title, "bs.main") or string.match(pane_title, "bs.dev") or string.match(pane_title, "bs.tag") then
     pane_bg_color = "brown"
+  -- Pay metrics - kibana transform vis
   elseif string.match(pane_title, "transform.vi.") then
-    pane_bg_color = "#731d1d"
+    pane_bg_color = "#731d1d" --darker brown  -- Pay metrics - kibana transform vis
+  elseif string.match(pane_title, "kibana") then
+    pane_bg_color = "#421010" --darker darker brown
   -- MSP project
   elseif string.match(pane_title, "chatbot") or string.match(pane_title, "chatbot-dev") or string.match(pane_title, "GSMA")  or string.match(pane_title, "validation")then
     pane_bg_color = "pink"
