@@ -1,4 +1,5 @@
 # this is config for powerline-go
+# Displays a nice rich prompt.
 #
 # This file can be colored using :set syntax=bash
 # vim: set syntax=bash foldmethod=marker:
