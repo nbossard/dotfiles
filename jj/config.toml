@@ -33,3 +33,17 @@ mark-unpushed-bookmarks = true
 
 # "light" or "dark". If not set, your OS settings will be used.
 # theme-override = "dark"
+
+
+# voir doc : https://jj-vcs.github.io/jj/latest/config/#setting-up-a-custom-merge-tools
+[merge-tools.bcomp]
+merge-args = ["$base", "$left", "$rigt", "-o", "$output", "--auto"]
+
+[merge-tools.nvim]
+merge-args = ["-f", "-d", "$output", "-M",
+    "$left", "$base", "$right",
+    "-c", "wincmd J", "-c", "set modifiable",
+    "-c", "set write"]
+program = "nvim"
+merge-tool-edits-conflict-markers = true
+
