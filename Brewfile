@@ -260,6 +260,9 @@ cask "balenaetcher"
 # Install file and folder comparison tool
 cask "beyond-compare"
 
+# 3D creation tool. Used by Albin.
+cask "blender"
+
 # Install Homebrew GUI manager
 cask "brewlet"
 
