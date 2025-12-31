@@ -1,3 +1,10 @@
+# Liste des programmes à installer via homebrew.
+# Pour :
+# - réinstallation sur une vieille machine
+# - revue et suppression des programmes inutilisés
+#
+# Utilisation : `brew bundle upgrade`
+
 # Add tap for imgcat image display tool
 tap "danielgatis/imgcat"
 # Add tap for managing system services with Homebrew
@@ -104,20 +111,28 @@ brew "jdtls"
 brew "jira-cli"
 # Install Jujutsu version control system
 brew "jj"
+#
 # Install TUI for Jujutsu VCS
 brew "jjui"
+
 # Install JSON processor
 brew "jq"
+
 # Install Git TUI client
 brew "lazygit"
 # Install Jujutsu TUI client
 brew "lazyjj"
+
 # Install sophisticated FTP client
+# Utilisé dans les script makefile de synchro photos perso
 brew "lftp"
+
 # Install additional guest agents for Lima
 brew "lima-additional-guestagents"
+
 # Install log file navigator
 brew "lnav"
+
 # Install data processing pipeline
 brew "logstash"
 # Install Lua language server
