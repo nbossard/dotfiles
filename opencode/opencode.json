@@ -20,5 +20,12 @@
       }
     }
   },
-  "model": "llmproxy/vertex_ai/gemini-2.0-flash"
+  "model": "llmproxy/vertex_ai/gemini-2.0-flash",
+  "lsp": {
+    "markdown": {
+      "disabled": false,
+      "command": ["marksman", "server"],
+      "extensions": [".md", ".markdown"]
+    }
+  }
 }
