@@ -124,8 +124,13 @@ brew "logstash"
 brew "lua-language-server"
 # Install link checker
 brew "lychee"
+
 # Install GNU Make build tool
 brew "make"
+
+# LSP server for markdown
+brew "marksman"
+
 # Install Markdown linter
 brew "markdownlint-cli"
 # Install static site generator for documentation
