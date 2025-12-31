@@ -226,6 +226,9 @@ brew "trufflehog"
 # Install source code indexing tool
 brew "universal-ctags"
 
+# monitor list of webpages for change
+brew "urlwatch"
+
 # Install Linux utilities for macOS
 brew "util-linux"
 
