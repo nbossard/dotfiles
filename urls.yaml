@@ -1,0 +1,27 @@
+# The list of files monitored by urlwatch
+kind: url
+url: https://www.rennesurbantrail.bzh/inscriptions.php
+name: Rennes Urban Trail Inscription
+filter:
+  - xpath: /html/body/div[3]/div/main/div
+  - html2text
+alert:
+  - 'Content has changed'
+---
+kind: url
+url: https://www.meetup.com/fr-fr/software-crafters-rennes/
+name: Meetup évènement à venir
+filter:
+  - xpath: /html/body/div[1]/div[2]/div[2]/div/div[2]/main/div[3]/div/div/div[2]
+  - html2text
+alert:
+  - 'Content has changed'
+---
+kind: url
+url: https://www.klikego.com/inscription/intrail-muros-2026/running-course-a-pied/1413880064129-21
+name: intrail-muros-2026
+filter:
+  - xpath: /html/body/main/div/div/div/div[13]/div[2]
+  - html2text
+alert:
+  - 'Content has changed'
