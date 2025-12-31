@@ -119,9 +119,12 @@ brew "jjui"
 brew "jq"
 
 # Install Git TUI client
-brew "lazygit"
+# brew "lazygit"
+# 2025-12-16: désinstallé car inutilisé
+
 # Install Jujutsu TUI client
-brew "lazyjj"
+# brew "lazyjj"
+# 2025-12-16 : désinstallé car j'utilise en fait jjui
 
 # Install sophisticated FTP client
 # Utilisé dans les script makefile de synchro photos perso
