@@ -7,7 +7,7 @@ email = "nicolas.bossard@orange.com"
 [ui]
 editor = "nvim"
 paginate = "never"
-diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+# diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
 
 [aliases]
 # jj log --limit 15
