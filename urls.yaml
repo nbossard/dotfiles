@@ -1,27 +1,40 @@
-# The list of files monitored by urlwatch
+filter:
+- xpath: /html/body/div[3]/div/main/div
+- html2text
 kind: url
-url: https://www.rennesurbantrail.bzh/inscriptions.php
 name: Rennes Urban Trail Inscription
-filter:
-  - xpath: /html/body/div[3]/div/main/div
-  - html2text
-alert:
-  - 'Content has changed'
+url: https://www.rennesurbantrail.bzh/inscriptions.php
 ---
+filter:
+- xpath: /html/body/div[1]/div[2]/div[2]/div/div[2]/main/div[3]/div/div/div[2]
+- html2text
 kind: url
+name: "Meetup \xE9v\xE8nement \xE0 venir"
 url: https://www.meetup.com/fr-fr/software-crafters-rennes/
-name: Meetup évènement à venir
-filter:
-  - xpath: /html/body/div[1]/div[2]/div[2]/div/div[2]/main/div[3]/div/div/div[2]
-  - html2text
-alert:
-  - 'Content has changed'
 ---
-kind: url
-url: https://www.klikego.com/inscription/intrail-muros-2026/running-course-a-pied/1413880064129-21
-name: intrail-muros-2026
 filter:
-  - xpath: /html/body/main/div/div/div/div[13]/div[2]
-  - html2text
-alert:
-  - 'Content has changed'
+- xpath: /html/body/main/div/div/div/div[13]/div[2]
+- html2text
+kind: url
+name: intrail-muros-2026
+url: https://www.klikego.com/inscription/intrail-muros-2026/running-course-a-pied/1413880064129-21
+---
+filter:
+- xpath: /html/body/main/div/div/div/div[13]/div[2]
+- html2text
+kind: url
+name: issue rules obsidian mapview
+url: https://github.com/esm7/obsidian-map-view/issues/359
+---
+filter:
+- xpath: /html/body/div[1]/div[6]/div/main/turbo-frame/react-app/div/div/div/div
+- html2text
+kind: url
+name: issue lazyjui
+url: https://github.com/MrDwarf7/lazyjui.nvim/issues/7
+---
+filter:
+- html2text
+kind: url
+name: neovim_conf
+url: https://neovimconf.live/
