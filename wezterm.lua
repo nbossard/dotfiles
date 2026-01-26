@@ -73,6 +73,8 @@ wezterm.on("format-tab-title", function(tab)
     pane_bg_color = "pink"
   elseif string.match(pane_title, "copilot") then
     pane_bg_color = "cyan"
+  elseif string.match(pane_title, "photos_perso") then
+    pane_bg_color = "blue"
   else
     pane_bg_color = "black"
   end
@@ -95,27 +97,69 @@ end)
 -- Launch programs at startup automatically
 -- quiet tricky, solution found here : https://github.com/wezterm/wezterm/issues/3646
 wezterm.on('gui-startup', function()
+  -- dot files
   local _, another_pane, window = wezterm.mux.spawn_window {}
   another_pane:send_text "cd dotfiles\nwrt dotfiles\nnvim\n"
+  --
+  -- dotvim
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd dotvim\nwrt dotvim\nnvim\n"
+  --
+  -- obsperso - personal obsidian vault
   _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd perso/llm-functions\nwrt llm-functions\nnvim\n"
+  another_pane:send_text "cd obsperso\nwrt obsperso\n"
+  --
+  -- obsperso - opencode nutrition
   _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "colima start -f\n"
+  another_pane:send_text "cd obsperso\nwrt opencode\nopencode\n"
+  --
+  -- obsperso - jjui
   _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt docker\ndocker start elasticsearch-8.17.5"
+  another_pane:send_text "cd obsperso\nwrt jjui\njjui\n"
+  --
+  -- photos_perso - personal photo management
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd perso/photos_perso\nwrt photos_perso\n"
+  -- photos_perso ssh raspberry pi
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "ssh ftpuser@rasp5gitphotos-ethernet -p 31415\nwrt photos_perso\n"
+  --
+  -- book albin
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd perso/book\nwrt book\n"
+  --
+  -- llm functions, given up, now using opencode
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd perso/llm-functions\nwrt llm-functions\nnvim\n"
+  --
+  -- colima, for docker containers
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "wrt colima\ncolima start -f"
   -- Replaced by github copilot
   -- _, another_pane, _ = window:spawn_tab {}
   -- another_pane:send_text "wrt tabby;tabby serve --device metal --model StarCoder-3B\n"
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd PilotageDistri/business-server\nwrt bs-main\n"
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd PilotageDistri/business-server-dev\nwrt bs-dev\n"
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd PilotageDistri/business-server-taggage\nwrt bs-tag\n"
+  --
+  -- business server, closed project
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd PilotageDistri/business-server\nwrt bs-main\n"
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd PilotageDistri/business-server-dev\nwrt bs-dev\n"
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd PilotageDistri/business-server-taggage\nwrt bs-tag\n"
+  --
+  -- chatbot
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd my-security-partner/chatbot\nwrt chatbot\n"
+  -- chatbot jjui interface
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd my-security-partner\njjui\n"
+  -- chatbot opencode
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd my-security-partner\nopencode\n"
+  -- chatbot dev
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd my-security-partner/chatbot-dev\nwrt chatbot\n"
+  -- gsma bot server
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd my-security-partner/gsma-bot-server\nwrt GSMA\n"
 end)
