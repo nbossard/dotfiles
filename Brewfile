@@ -13,6 +13,9 @@ tap "homebrew/services"
 tap "mongodb/brew"
 # Add Tabby AI code completion tool tap
 tap "tabbyml/tabby"
+
+# Install 7-zip, required by yazi
+brew "7-zip"
 # Install AI-powered chat CLI tool
 brew "aichat"
 # Install Gemini protocol browser for terminal
@@ -77,6 +80,8 @@ brew "fzf"
 brew "gifsicle"
 # Install Git version control system
 brew "git"
+# Pour gérer les photos
+brew "git-annex"
 # Install syntax-highlighted git diff viewer
 brew "git-delta"
 # Install Git repository filtering tool
@@ -264,8 +269,9 @@ brew "zsh-syntax-highlighting"
 
 # Install opencode concurrent : crush
 # obsidian://open?vault=obsperso&file=Permanent%2FInformatique%2FIA%2Fcrush
-tap "charmbracelet/tap"
-brew "charmbracelet/tap/crush"
+# tap "charmbracelet/tap"
+# brew "charmbracelet/tap/crush"
+# désinstallé car j'utilise en fait opencode
 
 # Install MongoDB database utilities
 brew "mongodb/brew/mongodb-database-tools"
