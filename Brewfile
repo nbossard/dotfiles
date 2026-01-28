@@ -62,6 +62,8 @@ brew "dust"
 brew "entr"
 # Install JavaScript linter
 brew "eslint"
+# Install tool to see tags of mp3/FLAC files
+brew "exiftool"
 # Install modern ls replacement
 brew "eza"
 # Install fast find alternative
