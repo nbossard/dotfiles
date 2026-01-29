@@ -8,14 +8,14 @@ I prefer command line (terminal) tools.
 
 I like using following tools:
 
-- wezterm
-- neovim
+- wezterm (most of my day i work in wezterm with multiple tabs open)
+- neovim (the editor I use 99% of time. I use very rarely vscode)
 - makefile
 - jq (to manipulate json)
-- markdown
-- yazi (a file manager)
+- markdown (all the doc in code is written in markdown, I also use it for my Personnal knowledge Base)
+- yazi (a terminal file manager)
 
-I prefer installing tools usin homebrew.
+I prefer installing tools using homebrew.
 
 I like bash scripts, I hate python scripts.
 
