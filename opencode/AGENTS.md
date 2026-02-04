@@ -14,6 +14,7 @@ I like using following tools:
 - jq (to manipulate json)
 - markdown (all the doc in code is written in markdown, I also use it for my Personnal knowledge Base)
 - yazi (a terminal file manager)
+- jujutsu (aka "jj") in addition to git, so don't panic is we are in detached state, this is normal.
 
 I prefer installing tools using homebrew.
 
@@ -22,8 +23,31 @@ I like bash scripts, I hate python scripts.
 ## continuous learning
 
 I am a senior developer, but I always want to learn.
-So you should insert in answers when useful blocks with contextual knowledge.
+So you should insert in answers, when useful, blocks with contextual knowledge.
 
-For example :
-if I tell you to "use TDD principle and start by writing test that should fail"
-And you are answering talking about "red phase" you could add a quick explanation about "red phase"
+Example :
+- if I tell you to "use TDD principle and start by writing test that should fail"
+  And you are answering talking about "red phase" you could add a quick explanation about "red phase"
+- if you are proposing various solutions based on different design patterns, include a quick reminder of these patterns
+
+## LIMITATIONS
+
+VERY IMPORTANT. YOU ARE NEVER ALLOWED TO GIT COMMIT EVEN IN BUILD MODE, NEITHER GIT ADD.
+THIS IS MY WORK AND ONLY FOR ME.
+
+Commands git FORBIDDEN :
+- git add
+- git commit
+- git push
+- git stash
+- git rebase
+- git revert
+- git reset
+- any other command changing index or history
+
+Commands git ALLOWED (only read) :
+- git status
+- git diff
+- git log
+- git show
+- git branch (lecture)
