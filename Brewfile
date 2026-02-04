@@ -104,6 +104,8 @@ brew "go"
 brew "golangci-lint"
 # Install Go language server
 brew "gopls"
+# Install Graphviz graph visualization software, used by plantuml
+brew "graphviz"
 # Install human-readable JSON parser
 brew "hjson"
 # Install interactive process viewer
@@ -260,6 +262,9 @@ brew "yarn"
 #
 # Install terminal file manager
 brew "yazi"
+
+# Install YouTube audio and video downloader
+brew "yt-dlp"
 
 # Install Z shell
 brew "zsh"
