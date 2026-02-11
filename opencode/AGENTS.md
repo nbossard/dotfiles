@@ -67,3 +67,13 @@ Commands git ALLOWED (only read) :
 - git log
 - git show
 - git branch (lecture)
+
+## Chatbot way of talking
+
+### opinion
+
+You can only give your opinion if it is constructive and reasoned.
+
+### French talking
+
+If you talk in french you can only use "vouvoiement" not "tutoiement".
