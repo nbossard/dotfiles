@@ -1,9 +1,13 @@
+# vim: set foldmethod=marker:
 # Liste des programmes à installer via homebrew.
 # Pour :
 # - réinstallation sur une vieille machine
 # - revue et suppression des programmes inutilisés
 #
 # Utilisation : `brew bundle upgrade`
+
+# ------------------------------------- brew --------------------------------------
+# {{{
 
 # Add tap for imgcat image display tool
 tap "danielgatis/imgcat"
@@ -289,7 +293,11 @@ brew "sst/tap/opencode"
 
 # Install Tabby AI code completion server
 brew "tabbyml/tabby/tabby"
-#
+
+# }}}
+# ------------------------------------- cask -------------------------------------
+# {{{
+
 # Install spaced repetition flashcard app
 cask "anki"
 #
@@ -371,6 +379,11 @@ cask "vlc"
 cask "vscodium"
 # Install terminal emulator
 cask "wezterm"
+
+# }}}
+# ------------------------------------- vscode -----------------------------------
+# {{{
+
 # Install Neovim integration for VS Code
 vscode "asvetliakov.vscode-neovim"
 # Install Make task provider for VS Code
@@ -397,6 +410,11 @@ vscode "undefined_publisher.hjson-painless"
 vscode "visualjj.visualjj"
 # Install Git blame annotation extension
 vscode "waderyan.gitblame"
+
+# }}}
+# ------------------------------ outils de développement Go ----------------------------
+# {{{
+
 # Install Go call graph analysis tool
 go "golang.org/x/tools/cmd/callgraph"
 # Install Go debugger
@@ -455,3 +473,5 @@ go "go.uber.org/mock/mockgen"
 go "github.com/justjanne/powerline-go"
 # Install enhanced Go test output
 go "github.com/kyoh86/richgo"
+
+# }}}
