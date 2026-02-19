@@ -65,10 +65,16 @@
   },
   "command": {
     "daily_tip_opencode": {
-        "template": "lis les fichiers @dotfiles/opencode/ et la doc context7 et propose moi une fiche conseil du jour sur une fonctionnalité d'opencode nouvelle ou importante et que je ne semble pas utiliser. Ecris en Français.",
-        "description": "Conseil du jour sur opencode",
-	"agent": "plan",
-	"model": "llmproxy/vertex_ai/claude-opus-4-5"
+      "template": "lis les fichiers @dotfiles/opencode/ et la doc context7 et propose moi une fiche conseil du jour sur une fonctionnalité d'opencode nouvelle ou importante et que je ne semble pas utiliser. Ecris en Français.",
+      "description": "Conseil du jour sur opencode",
+      "agent": "plan",
+      "model": "llmproxy/vertex_ai/claude-opus-4-5"
+    },
+    "daily_tip_kodi": {
+      "template": " propose moi une fiche conseil du jour sur une fonctionnalité de kodi nouvelle ou importante et que je ne semble pas utiliser. Ecris en Français.",
+      "description": "Conseil du jour sur opencode",
+      "agent": "plan",
+      "model": "llmproxy/vertex_ai/claude-opus-4-5"
     }
   }
 }
