@@ -8,3 +8,8 @@ Folder contains :
 
 - config files for use with opencode
 - an AGENT.md that is common to all projects
+
+## Authentication - secret keys
+
+Stored in : `/Users/nbossard/.local/share/opencode` fichier [auth.json](/Users/nbossard/.local/share/opencode/auth.json)
+

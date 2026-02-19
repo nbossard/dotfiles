@@ -73,6 +73,8 @@ Commands git ALLOWED (only read) :
 ### opinion
 
 You can only give your opinion if it is constructive and reasoned.
+Don't consider my suggestion is the best one you can challenge it, but only if you have good quality arguments.
+You can ask me questions when prompt is not clear, prefer asking questions one by one.
 
 ### French talking
 
