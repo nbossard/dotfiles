@@ -7,6 +7,8 @@ email = "nicolas.bossard@orange.com"
 [ui]
 editor = "nvim"
 paginate = "never"
+# Use delta for colorized diff output
+diff-formatter = "delta"
 # diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
 
 [aliases]
@@ -38,6 +40,10 @@ mark-unpushed-bookmarks = true
 # voir doc : https://jj-vcs.github.io/jj/latest/config/#setting-up-a-custom-merge-tools
 [merge-tools.bcomp]
 merge-args = ["$base", "$left", "$rigt", "-o", "$output", "--auto"]
+
+[merge-tools.delta]
+# Suppress exit code warning from delta (it returns 1 when there are diffs)
+diff-expected-exit-codes = [0, 1]
 
 [merge-tools.nvim]
 merge-args = ["-f", "-d", "$output", "-M",
