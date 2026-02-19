@@ -294,6 +294,9 @@ brew "sst/tap/opencode"
 # Install Tabby AI code completion server
 brew "tabbyml/tabby/tabby"
 
+# Install yq YAML processor based on jq
+brew "yq"
+
 # }}}
 # ------------------------------------- cask -------------------------------------
 # {{{
