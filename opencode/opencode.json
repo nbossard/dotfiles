@@ -5,26 +5,26 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM Proxy",
       "options": {
-        "baseURL": "https://llmproxy.ai.orange",
+        "baseURL": "https://llmproxy.ai.orange"
       },
       "models": {
-	"vertex_ai/claude-haiku-4-5": {
+        "vertex_ai/claude-haiku-4-5": {
           "name": "Claude Haiku 4.5 - puissant cher",
-          "limit": {"output": 64000, "context": 200000}
-	},
-	"vertex_ai/claude-sonnet-4-5": {
+          "limit": { "output": 64000, "context": 200000 }
+        },
+        "vertex_ai/claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5 - équilibré",
-          "limit": {"output": 64000, "context": 200000}
-	},
-	"vertex_ai/claude-opus-4-5": {
+          "limit": { "output": 64000, "context": 200000 }
+        },
+        "vertex_ai/claude-opus-4-5": {
           "name": "Claude Opus 4.5 - rapide économique",
-          "limit": {"output": 64000, "context": 200000}
-	},
+          "limit": { "output": 64000, "context": 200000 }
+        },
         "vertex_ai/claude3.5-sonnet-v2": {
           "name": "Claude Sonnet 3.5",
-          "limit": {"output": 8192, "context": 200000}
+          "limit": { "output": 8192, "context": 200000 }
         },
-	"vertex_ai/gemini-2.0-flash": {
+        "vertex_ai/gemini-2.0-flash": {
           "name": "Gemini 2 Flash",
           "limit": {"output": 8192, "context": 1048576}
         }
