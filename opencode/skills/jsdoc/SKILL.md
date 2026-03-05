@@ -1,6 +1,6 @@
 ---
 name: jsdoc
-description: Use this when writing or adding JSDoc comments to JavaScript/TypeScript functions, classes, or types. Generates strict JSDoc following @typedef conventions.
+description: ALWAYS load this skill BEFORE writing or adding JSDoc comments to JavaScript/TypeScript functions, classes, or types. Generates strict JSDoc following @typedef conventions.
 license: MIT
 metadata:
   audience: developers
@@ -10,7 +10,7 @@ metadata:
 
 ## When to use me
 Load this skill AUTOMATICALLY when:
-- Adding documentation to JavaScript/TypeScript code
+- Adding or modifying documentation to JavaScript/TypeScript code
 - Creating JSDoc comments for functions, methods, or classes
 - Documenting type definitions or interfaces
 - User asks to "document", "add JSDoc", or "comment" code
