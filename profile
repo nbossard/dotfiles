@@ -86,7 +86,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     alias finder="open -a finder"
     alias teams="open -a \"Microsoft Teams\""
     alias vscode="open -a \"Visual Studio Code\""
-    alias obsidian="open -a \"Obsidian\""
+    # 2026-03-01 : removed to use obsidian CLI
+    # alias obsidian="open -a \"Obsidian\""
     # alias gg="open -a \"gg\"" # old version does not support auto opening of current folder
     alias gg="/Applications/gg.app/Contents/MacOS/gg . &"
     alias ggn="open -n -a \"gg\""
@@ -116,6 +117,9 @@ export PATH=$GOBIN:$PATH
 
 # the fuck tool
 eval $(thefuck --alias)
-# }}}
+
+# Added by Obsidian to use obsidian CLI
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 #
+# }}}
 source ~/dotfiles/AI_API_KEYS.sh
