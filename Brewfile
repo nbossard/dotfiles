@@ -16,7 +16,8 @@ tap "homebrew/services"
 # Add MongoDB's official Homebrew tap
 tap "mongodb/brew"
 # Add Tabby AI code completion tool tap
-tap "tabbyml/tabby"
+# 2026-03-19 : désinstallation pour gagner de la place, remplacement par githib copilot
+# tap "tabbyml/tabby"
 
 # Install 7-zip, required by yazi
 brew "7-zip"
