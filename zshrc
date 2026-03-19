@@ -61,13 +61,18 @@ function count_nvim_in_current_terminal() {
     # Export the percentage for use in the prompt
     export MEMORY_FREE_PERCENTAGE=$memory_free_percentage
 
+    ## Get the free disk space percentage for the root partition
+    local disk_free_percentage=$(df -h / | awk 'NR==2 {print $5}' | sed 's/%//')
+    export DISK_FREE_PERCENTAGE=$disk_free_percentage
+
     # Same with label prefix for understandable display
     # empty if NVIM_COUNT is 0
     local nvim_label=$([ "$NVIM_COUNT" -eq 0 ] && echo "" || echo "nvim:$NVIM_COUNT")
     local mem_label=$([ " $MEMORY_FREE_PERCENTAGE" -gt 50 ] && echo "" || echo "Mem:$MEMORY_FREE_PERCENTAGE%%")
+    local disk_label=$([ " $DISK_FREE_PERCENTAGE" -gt 30 ] && echo "" || echo "Disk:$DISK_FREE_PERCENTAGE%%")
 
     # Combine the labels
-    export NVIM_COUNT_LABEL="$nvim_label$mem_label"
+    export NVIM_COUNT_LABEL="$nvim_label$mem_label$disk_label"
 }
 # Call the function whenever a new shell session is started
 count_nvim_in_current_terminal
