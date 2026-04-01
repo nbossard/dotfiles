@@ -289,8 +289,7 @@ brew "zsh-syntax-highlighting"
 brew "mongodb/brew/mongodb-database-tools"
 
 # Install OpenCode AI assistant
-tap "sst/tap"
-brew "sst/tap/opencode"
+brew "anomalyco/tap/opencode"
 
 # Install Tabby AI code completion server
 brew "tabbyml/tabby/tabby"
