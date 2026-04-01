@@ -18,6 +18,25 @@
           "name": "Claude Sonnet 4.5 - équilibré",
           "limit": { "output": 64000, "context": 200000 },
           "cost": { "input": 3, "output": 15 },
+          "variants": {
+            "default": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "thinking_default": {
+              "thinking": {
+                "type": "enabled",
+                "budgetTokens": 16000
+              }
+            },
+            "max_thinking": {
+              "thinking": {
+                "type": "enabled",
+                "budgetTokens": 32000
+              }
+            }
+          }
         },
         "vertex_ai/claude-opus-4-5": {
           "name": "Claude Opus 4.5 - puissant cher",
