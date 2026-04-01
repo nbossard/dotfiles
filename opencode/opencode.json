@@ -5,7 +5,8 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM Proxy",
       "options": {
-        "baseURL": "https://llmproxy.ai.orange"
+        "baseURL": "https://llmproxy.ai.orange",
+        "apiKey": "{env:OPENAI_API_KEY}"
       },
       "models": {
         "vertex_ai/claude-haiku-4-5": {
