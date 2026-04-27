@@ -1,6 +1,6 @@
 ---
 name: task_manager
-description: This skill is to help .
+description: This skill is to help managing tasks.
 license: MIT
 metadata:
   audience: developers
@@ -43,7 +43,6 @@ Depuis le 30 mars 2026, toutes les tâches utilisent un système standardisé de
 - Ne melange pas le perso et le pro dans les listes de tâches que tu produis
 - Voir le document [Permanent/Obsidian/Getting Things Done.md](../../Permanent/Obsidian/Getting%20Things%20Done.md) pour plus de détails
 
-
 ## Méthode de travail et outils à utiliser
 
 Commence par lire le fichier `AGENTS.md` à la racine du repo et celui du dossier `Agenda`.
@@ -63,7 +62,7 @@ Pour proposer la prochaine tâche optimale, utiliser l'ordre des 4 critères GTD
 
 Attention : voici une journée typique de travail à prendre en compte dans la priorisation:
 - 8h45->9h15 relationnel café organisation de la journée
-- 9h15->10h00 daily
+- 9h15->10h00 daily MSP
 - 10h->12H00 travail
 - 12h->14h pause du midi
 - 14h->18h30 travail de l'après-midi
