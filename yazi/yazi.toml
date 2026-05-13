@@ -1,0 +1,26 @@
+# Nicolas BOSSARD Yazi Configuration File
+# https://yazi-rs.github.io/docs/configuration/yazi
+
+# [opener] - Define custom openers for opening files/directories
+# Each opener specifies a command to run when invoked from the open-with menu (press 'O')
+[opener]
+# Custom opener: Open directories in a new WezTerm tab
+wezterm-tab = [
+  { 
+    run = 'wezterm cli spawn --cwd "%d"',  # %d = directory path of hovered/selected item
+    orphan = true,                          # Keep WezTerm running even if yazi exits
+    desc = "Open in WezTerm tab",          # Description shown in the open-with menu
+    for = "unix"                            # Only available on Unix-like systems (macOS, Linux)
+  }
+]
+
+# [open] - Define rules for which openers are available for specific file types
+# prepend_rules: Adds rules before yazi's defaults (higher priority)
+[open]
+prepend_rules = [
+  # Make wezterm-tab opener available for all directories
+  { 
+    url = "*/",                             # Match all directories (trailing / = directory)
+    use = ["open", "wezterm-tab"]          # Available openers: default "open" + our custom "wezterm-tab"
+  }
+]
