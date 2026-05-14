@@ -67,6 +67,21 @@
         }
       }
     },
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://localhost:9988/v1/",
+        "apiKey": "lm-studio"
+      },
+      "models": {
+        "qwen/qwen3-coder-next": {
+          "name": "Qwen Coder next",
+          "reasoning": true,
+          "tool_call": true
+        }
+      }
+    },
     "llmproxy4code": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM Proxy 4 code (via la console)",
