@@ -16,7 +16,7 @@
           "cost": { "input": 1, "output": 5 }
         },
         "vertex_ai/claude-sonnet-4-5": {
-          "name": "Claude Sonnet 4.5 - équilibré",
+          "name": "Claude Sonnet 4.5 - équilibré - ⚠️tarif iso 4.6",
           "limit": { "output": 64000, "context": 200000 },
           "cost": { "input": 3, "output": 15 },
           "variants": {
