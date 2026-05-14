@@ -120,6 +120,9 @@ export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 # to allow cargo (rust) installed applications to be found
 export PATH="/Users/nbossard/.cargo/bin":$PATH
 
+# NBO addition: to allow android studio platform tools (adb,...) to be found
+export PATH="/Users/nbossard/Library/Android/sdk/platform-tools/":$PATH
+
 # set go related env vars, required for example by treesitter parser in neovim
 export GOPATH=$(go env GOPATH)
 export GOBIN=$GOPATH/bin
