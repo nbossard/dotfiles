@@ -99,6 +99,8 @@ brew "gitlab-runner"
 brew "gitleaks"
 # Install GNU version of sed
 brew "gnu-sed"
+# Lazy docker, docker TUI client
+brew "lazydocker"
 # Install IPC library for GnuPG
 brew "libassuan"
 # Install GNU Privacy Guard
@@ -228,6 +230,9 @@ brew "task"
 # Install task annotation opener
 brew "taskopen"
 
+#tool TUI for mongodb
+brew "drewzemke/tap/tongo"
+
 # Install command correction tool
 brew "thefuck"
 
@@ -289,7 +294,7 @@ brew "zsh-syntax-highlighting"
 brew "mongodb/brew/mongodb-database-tools"
 
 # Install OpenCode AI assistant
-brew "anomalyco/tap/opencode"
+brew opencode
 
 # Install Tabby AI code completion server
 brew "tabbyml/tabby/tabby"
