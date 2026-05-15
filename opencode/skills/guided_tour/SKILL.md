@@ -35,6 +35,32 @@ Exemple INCORRECT :
 ```markdown
 [[express]]
 ```
+### Format des liens internes au document
+
+Voici un exemple de lien interne au document valide, c'est à dire supporté par obsidian, note les espaces qui sont des %20 et les icones nécessaires aussi dans les liens:
+
+```txt
+## 📋 Table des matières
+
+1. [🏗️ Vue d'ensemble du projet](#🏗️%20Vue%20d'ensemble%20du%20projet)
+2. [🚀 Point d'entrée - L'application](#🚀%20Point%20d'entrée%20-%20L'application)
+
+---
+
+## 🏗️ Vue d'ensemble du projet
+
+lorem ipsum
+
+
+---
+
+## 🚀 Point d'entrée - L'application
+
+sin dolores
+
+
+```
+
 
 ## Code mort
 
