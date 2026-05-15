@@ -82,6 +82,20 @@
         }
       }
     },
+    // 2026-05-06 : testé APFEL en localhost
+    // PRB BLOQUANT : la fenêtre de contexte est très limitée (4096 tokens) ce qui est trop peu pour les instructions complexes d'opencode
+    // "apfel": {
+    //   "npm": "@ai-sdk/openai-compatible",
+    //   "name": "APFEL (local)",
+    //   "options": {
+    //     "baseURL": " http://localhost:11434/v1/",
+    //   },
+    //   "models": {
+    //     "apple-foundationmodel": {
+    //       "name": "Apple Foundation Model via tool APFEL",
+    //     }
+    //   }
+    // },
     "llmproxy4code": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM Proxy 4 code (via la console)",
