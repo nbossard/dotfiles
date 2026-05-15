@@ -1,9 +1,10 @@
 ---
 name: guided_tour
-description: Load this toll when user asks for a guided tour of the source code of an application.
+description: Load this tol when user asks for a guided tour of the source code of an application.
 ---
 
-Crée un tour guidé interactif du code source de ce projet en markdown, visible dans obsidian.
+Crée un tour guidé interactif du code source de ce projet en markdown.
+Ce tour guidé sera visible dans l'application "obsidian".
 
 Commence le fichier par un disclaimer similaire à celui-ci:
 ```markdowns
@@ -26,7 +27,7 @@ Dans la section "Architecture technique" en plus de les lister et de donner leur
 Inclue des liens vers le code vers les bons fichiers aux bonnes lignes dans vscode. Les liens dans obsidian ressemblent à ça : [**api/main.py:1**](vscode://file/home/kvtj8816/MesDevs/llm/gtia-fps/asgard/src/asgard/api/main.py:1)
 ### Format des liens internes au projet
 
-Si tu dois faire un lien du document principal de guided tour vers un autre document du projet utilise des liens au format markdown traditionnel, pas un wikilink.
+Si tu dois faire un lien du document principal de guided tour vers un autre fichier du projet utilise des liens au format markdown traditionnel, pas un wikilink.
 Exemple CORRECT :
 ```markdown
 [express](./doc/express.js)
@@ -72,4 +73,6 @@ Lorsque le code repose sur des librairies externes, même traditionnelles, ne co
 Suis la procédure suivante :
 - Vérifie d'abord dans la description du projet s'il y a un document qui les décrit, dans ce cas crée un lien vers ce document.
     Par exemple si le projet utilise le web framework "express" et qu'il y a un dossier "doc" avec un document "express.md" crée un ou des liens vers ce document
-- S'il n'existe pas demande à l'utilisateur s'il les connait et s'il souhaite que tu les crée
+- S'il n'existe pas demande à l'utilisateur s'il les connait et s'il souhaite que tu les crées
+
+Si tu crées ces documents externes entièrement, ajoute le disclaimer "généré par IA" décrit ci-dessus.
