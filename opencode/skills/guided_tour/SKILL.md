@@ -76,3 +76,7 @@ Suis la procédure suivante :
 - S'il n'existe pas demande à l'utilisateur s'il les connait et s'il souhaite que tu les crées
 
 Si tu crées ces documents externes entièrement, ajoute le disclaimer "généré par IA" décrit ci-dessus.
+
+## test
+
+Lorsque tu décris la partie test donne des métriques sur la couverture de test.
