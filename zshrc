@@ -144,3 +144,6 @@ autoload -Uz run-help
 HELPDIR="/usr/share/zsh/$(zsh --version | cut -d' ' -f2)/help"
 bindkey '^[h' run-help # option+h
 
+#force use of bob for neovim instead of homebrew
+# https://github.com/mordechaihadad/bob
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
