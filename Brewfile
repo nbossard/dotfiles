@@ -25,6 +25,8 @@ brew "7-zip"
 brew "aichat"
 # Install Gemini protocol browser for terminal
 brew "amfora"
+# Install AST-based code search and transformation tool required by grug-far.nvim
+brew "ast-grep"
 # Install Node.js JavaScript runtime
 brew "node"
 # Install Angular command-line interface
