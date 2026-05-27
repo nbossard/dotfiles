@@ -109,6 +109,10 @@ wezterm.on('gui-startup', function()
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "wrt colima\ncolima start -f\n"
   --
+  -- lazydocker
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "wrt lazydocker\nlazydocker\n"
+  --
   -- obsperso - personal obsidian vault
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd obsperso\nwrt obsperso\n"
