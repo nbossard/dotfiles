@@ -105,6 +105,10 @@ wezterm.on('gui-startup', function()
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd dotvim\nwrt dotvim\nnvim\n"
   --
+  -- colima
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "wrt colima\ncolima start -f\n"
+  --
   -- obsperso - personal obsidian vault
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "cd obsperso\nwrt obsperso\n"
@@ -131,10 +135,6 @@ wezterm.on('gui-startup', function()
   -- llm functions, given up, now using opencode
   -- _, another_pane, _ = window:spawn_tab {}
   -- another_pane:send_text "cd perso/llm-functions\nwrt llm-functions\nnvim\n"
-  --
-  -- colima, for docker containers
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt colima\ncolima start -f"
   -- Replaced by github copilot
   -- _, another_pane, _ = window:spawn_tab {}
   -- another_pane:send_text "wrt tabby;tabby serve --device metal --model StarCoder-3B\n"
