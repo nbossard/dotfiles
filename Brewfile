@@ -371,6 +371,8 @@ cask "libreoffice"
 cask "lm-studio"
 # Install knowledge management app
 cask "logseq"
+# Install mattermost team communication tool
+cask "mattermost"
 # Install RDP client
 cask "microsoft-remote-desktop"
 # Install MQTT client
