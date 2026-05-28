@@ -175,6 +175,8 @@ brew "mkdocs"
 brew "mongosh"
 # Install parser generator for syntax highlighting
 brew "tree-sitter"
+# and CLI tool, required by neovim treesitter plugin
+brew "tree-sitter-cli"
 # Install modern Vim-based text editor
 brew "neovim"
 # Install Qt GUI for Neovim
