@@ -8,7 +8,7 @@ This is Agents.md but GLOBAL, it applies to ALL projects.
 
 I prefer command line (terminal) tools.
 
-I like using following tools:
+I like using following command line tools:
 
 - wezterm (most of my day i work in wezterm with multiple tabs open)
 - neovim (the editor I use 99% of time. I use very rarely vscode)
@@ -17,6 +17,11 @@ I like using following tools:
 - markdown (all the doc in code is written in markdown, I also use it for my Personnal knowledge Base)
 - yazi (a terminal file manager)
 - jujutsu (aka "jj") in addition to git, so don't panic is we are in detached state, this is normal.
+- ripgrep (aka "Rg") instead of grep
+- opencode in the terminal
+
+I like using following GUI tools :
+- fork (https://git-fork.com/) "A fast and friendly git client"
 
 I prefer installing tools using homebrew.
 
