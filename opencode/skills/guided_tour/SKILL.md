@@ -10,7 +10,8 @@ Commence le fichier par un disclaimer similaire à celui-ci:
 ```markdowns
 > [!warning]
 > Génération par IA.
-> Ce guided tour a été généré par IA, le 2026-05-13 avec Opencode et le skill "guided_tour"
+> Ce guided tour a été généré par IA, le 2026-05-13 avec Opencode et le skill "guided_tour".
+> Sur la base du commit 473e7046133596f8ced5b819073c2bac9c51bf58.
 
 ```
 
@@ -61,7 +62,6 @@ sin dolores
 
 
 ```
-
 
 ## Code mort
 
