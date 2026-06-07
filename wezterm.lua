@@ -56,25 +56,33 @@ wezterm.on("format-tab-title", function(tab)
     pane_bg_color = "green"
   elseif string.match(pane_title, "dotfiles") then
     pane_bg_color = "lightGreen"
-  elseif string.match(pane_title, "obsperso") then
+  elseif string.match(pane_title, "obsperso")  or string.match(pane_title, "obsp") then
     pane_bg_color = "orange"
-  elseif string.match(pane_title, "colima") or string.match(pane_title, "docker") then
+  elseif string.match(pane_title, "book") then
+    pane_bg_color = "#cc7000"
+  elseif string.match(pane_title, "colima") or string.match(pane_title, "docker") or string.match(pane_title, "tongo") then
     pane_bg_color = "grey"
   -- Pay metrics
-  elseif string.match(pane_title, "bs.main") or string.match(pane_title, "bs.dev") or string.match(pane_title, "bs.tag") then
-    pane_bg_color = "brown"
+  -- elseif string.match(pane_title, "bs.main") or string.match(pane_title, "bs.dev") or string.match(pane_title, "bs.tag") then
+  --   pane_bg_color = "brown"
   -- Pay metrics - kibana transform vis
-  elseif string.match(pane_title, "transform.vi.") then
-    pane_bg_color = "#731d1d" --darker brown  -- Pay metrics - kibana transform vis
-  elseif string.match(pane_title, "kibana") then
-    pane_bg_color = "#421010" --darker darker brown
+  -- elseif string.match(pane_title, "transform.vi.") then
+  --   pane_bg_color = "#731d1d" --darker brown  -- Pay metrics - kibana transform vis
+  -- elseif string.match(pane_title, "kibana") then
+  --   pane_bg_color = "#421010" --darker darker brown
   -- MSP project
-  elseif string.match(pane_title, "chatbot") or string.match(pane_title, "chatbot-dev") or string.match(pane_title, "GSMA")  or string.match(pane_title, "validation")then
+  elseif string.match(pane_title, "chatbot") or string.match(pane_title, "chatbot-dev") or string.match(pane_title, "GSMA")  or string.match(pane_title, "validation") then
     pane_bg_color = "pink"
-  elseif string.match(pane_title, "copilot") then
+  elseif string.match(pane_title, "fraudr") then
+    pane_bg_color = "cyan"
+  elseif string.match(pane_title, "import33700") then
     pane_bg_color = "cyan"
   elseif string.match(pane_title, "photos_perso") then
     pane_bg_color = "blue"
+  elseif string.match(pane_title, "o-cli") then
+    pane_bg_color = "brown"
+  elseif string.match(pane_title, "imp33700")  or string.match(pane_title, "searchin33700")  or string.match(pane_title, "common") then
+    pane_bg_color = "pink"
   else
     pane_bg_color = "black"
   end
@@ -107,15 +115,19 @@ wezterm.on('gui-startup', function()
   --
   -- colima
   _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt colima\ncolima start -f\n"
+  another_pane:send_text "wrt colima\ncolima start -f"
   --
   -- lazydocker
   _, another_pane, _ = window:spawn_tab {}
   another_pane:send_text "wrt lazydocker\nlazydocker\n"
   --
+  -- vi-mongo - tui for mongodb
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "wrt tongo\ntongo -u mongodb://localhost:27017\n"
+  --
   -- obsperso - personal obsidian vault
   _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd obsperso\nwrt obsperso\n"
+  another_pane:send_text "cd perso/obsidian/obsperso\nwrt obsperso\n"
   --
   -- obsperso - opencode nutrition
   _, another_pane, _ = window:spawn_tab {}
@@ -152,20 +164,34 @@ wezterm.on('gui-startup', function()
   -- another_pane:send_text "cd PilotageDistri/business-server-taggage\nwrt bs-tag\n"
   --
   -- chatbot
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner/chatbot\nwrt chatbot\n"
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/chatbot\nwrt chatbot\n"
+  -- chatbot test run
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/chatbot\nwrt chatbot\n"
   -- chatbot jjui interface
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner\njjui\n"
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/chatbot\njjui\n"
   -- chatbot opencode
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner\nopencode\n"
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/chatbot\nopencode\n"
   -- chatbot dev
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner/chatbot-dev\nwrt chatbot\n"
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/chatbot-dev\nwrt chatbot\n"
   -- gsma bot server
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/gsma-bot-server\nwrt GSMA\n"
+  --gsma-bot-server opencode
+  -- _, another_pane, _ = window:spawn_tab {}
+  -- another_pane:send_text "cd my-security-partner/gsma-bot-server\nopencode\n"
+  --
+  -- scam report
+  -- import33700 run server
   _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner/gsma-bot-server\nwrt GSMA\n"
+  another_pane:send_text "cd my-security-partner/fraudr/import33700\nwrt imp33700-srv\nexport PORT=3001 && npm run start\n"
+  -- import33700
+  _, another_pane, _ = window:spawn_tab {}
+  another_pane:send_text "cd my-security-partner/fraudr/import33700\nwrt imp33700\n"
 end)
 
 -- Generic configuration
