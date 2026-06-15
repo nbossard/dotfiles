@@ -1,11 +1,12 @@
+-- Copyright (c) Nicolas BOSSARD
 -- config for wezterm, Nicolas BOSSARD
 -- setup initial : ln -s ~/dotfiles/wezterm.lua ~/.wezterm.lua
 -- vim: set list foldmethod=syntax :
 
-local wezterm = require 'wezterm';
+local wezterm = require("wezterm")
 local act = wezterm.action
 
-local config ={}
+local config = {}
 
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
@@ -16,8 +17,8 @@ end
 -- home defined config keys
 config.keys = {
   -- vim inspired commands
-  { key = 'h', mods = 'CTRL', action = act.MoveTabRelative(-1), },
-  { key = 'l', mods = 'CTRL', action = act.MoveTabRelative(1), },
+  { key = "h", mods = "CTRL", action = act.MoveTabRelative(-1) },
+  { key = "l", mods = "CTRL", action = act.MoveTabRelative(1) },
 }
 
 config.font_size = 16.0
@@ -56,11 +57,15 @@ wezterm.on("format-tab-title", function(tab)
     pane_bg_color = "green"
   elseif string.match(pane_title, "dotfiles") then
     pane_bg_color = "lightGreen"
-  elseif string.match(pane_title, "obsperso")  or string.match(pane_title, "obsp") then
+  elseif string.match(pane_title, "obsperso") or string.match(pane_title, "obsp") then
     pane_bg_color = "orange"
   elseif string.match(pane_title, "book") then
     pane_bg_color = "#cc7000"
-  elseif string.match(pane_title, "colima") or string.match(pane_title, "docker") or string.match(pane_title, "tongo") then
+  elseif
+    string.match(pane_title, "colima")
+    or string.match(pane_title, "docker")
+    or string.match(pane_title, "tongo")
+  then
     pane_bg_color = "grey"
   -- Pay metrics
   -- elseif string.match(pane_title, "bs.main") or string.match(pane_title, "bs.dev") or string.match(pane_title, "bs.tag") then
@@ -71,7 +76,12 @@ wezterm.on("format-tab-title", function(tab)
   -- elseif string.match(pane_title, "kibana") then
   --   pane_bg_color = "#421010" --darker darker brown
   -- MSP project
-  elseif string.match(pane_title, "chatbot") or string.match(pane_title, "chatbot-dev") or string.match(pane_title, "GSMA")  or string.match(pane_title, "validation") then
+  elseif
+    string.match(pane_title, "chatbot")
+    or string.match(pane_title, "chatbot-dev")
+    or string.match(pane_title, "GSMA")
+    or string.match(pane_title, "validation")
+  then
     pane_bg_color = "pink"
   elseif string.match(pane_title, "fraudr") then
     pane_bg_color = "cyan"
@@ -81,7 +91,11 @@ wezterm.on("format-tab-title", function(tab)
     pane_bg_color = "blue"
   elseif string.match(pane_title, "o-cli") then
     pane_bg_color = "brown"
-  elseif string.match(pane_title, "imp33700")  or string.match(pane_title, "searchin33700")  or string.match(pane_title, "common") then
+  elseif
+    string.match(pane_title, "imp33700")
+    or string.match(pane_title, "searchin33700")
+    or string.match(pane_title, "common")
+  then
     pane_bg_color = "pink"
   else
     pane_bg_color = "black"
@@ -96,57 +110,57 @@ wezterm.on("format-tab-title", function(tab)
   return {
 
     -- default color
-    {Foreground={Color=pane_fg_color}},
-    {Background={Color=pane_bg_color}},
-    {Text=" " .. pane_title .. " "},
+    { Foreground = { Color = pane_fg_color } },
+    { Background = { Color = pane_bg_color } },
+    { Text = " " .. pane_title .. " " },
   }
 end)
 
 -- Launch programs at startup automatically
 -- quiet tricky, solution found here : https://github.com/wezterm/wezterm/issues/3646
-wezterm.on('gui-startup', function()
+wezterm.on("gui-startup", function()
   -- dot files
-  local _, another_pane, window = wezterm.mux.spawn_window {}
-  another_pane:send_text "cd dotfiles\nwrt dotfiles\nnvim\n"
+  local _, another_pane, window = wezterm.mux.spawn_window({})
+  another_pane:send_text("cd dotfiles\nwrt dotfiles\nnvim\n")
   --
   -- dotvim
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd dotvim\nwrt dotvim\nnvim\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd dotvim\nwrt dotvim\nnvim\n")
   --
   -- colima
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt colima\ncolima start -f"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("wrt colima\ncolima start -f")
   --
   -- lazydocker
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt lazydocker\nlazydocker\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("wrt lazydocker\nlazydocker\n")
   --
   -- vi-mongo - tui for mongodb
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "wrt tongo\ntongo -u mongodb://localhost:27017\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("wrt tongo\ntongo -u mongodb://localhost:27017\n")
   --
   -- obsperso - personal obsidian vault
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd perso/obsidian/obsperso\nwrt obsperso\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd perso/obsidian/obsperso\nwrt obsperso\n")
   --
   -- obsperso - opencode nutrition
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd obsperso\nwrt opencode\nopencode\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd obsperso\nwrt opencode\nopencode\n")
   --
   -- obsperso - jjui
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd obsperso\nwrt jjui\njjui\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd obsperso\nwrt jjui\njjui\n")
   --
   -- photos_perso - personal photo management
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd perso/photos_perso\nwrt photos_perso\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd perso/photos_perso\nwrt photos_perso\n")
   -- photos_perso ssh raspberry pi
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "ssh ftpuser@rasp5gitphotos-ethernet -p 31415\nwrt photos_perso\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("ssh ftpuser@rasp5gitphotos-ethernet -p 31415\nwrt photos_perso\n")
   --
   -- book albin
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd perso/book\nwrt book\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd perso/book\nwrt book\n")
   --
   -- llm functions, given up, now using opencode
   -- _, another_pane, _ = window:spawn_tab {}
@@ -187,11 +201,11 @@ wezterm.on('gui-startup', function()
   --
   -- scam report
   -- import33700 run server
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner/fraudr/import33700\nwrt imp33700-srv\nexport PORT=3001 && npm run start\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/fraudr/import33700\nwrt imp33700-srv\nexport PORT=3001 && npm run start\n")
   -- import33700
-  _, another_pane, _ = window:spawn_tab {}
-  another_pane:send_text "cd my-security-partner/fraudr/import33700\nwrt imp33700\n"
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/fraudr/import33700\nwrt imp33700\n")
 end)
 
 -- Generic configuration
