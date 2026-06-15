@@ -139,6 +139,13 @@
     }
   },
   "model": "llmproxy/vertex_ai/gemini-2.0-flash",
+  // Remplacement des formatteurs par défaut ou ajout de nouveaux formatteurs
+  "formatter" : {
+    "stylua": {
+      "command": ["stylua", "--indent-type", "spaces", "--indent-width", "2", "$FILE"],
+      "extensions": [".lua"]
+    }
+  },
   "lsp": {
     "markdown": {
       "disabled": false,

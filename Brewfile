@@ -30,7 +30,7 @@ brew "ast-grep"
 # Install Node.js JavaScript runtime
 brew "node"
 # Install Angular command-line interface
-brew "angular-cli"
+# brew "angular-cli" #2026-06-15 désinstallé car inutilisé
 # Install command-line argument parser generator
 brew "argc"
 # Install Python 3.12 interpreter
