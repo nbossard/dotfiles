@@ -64,7 +64,7 @@ wezterm.on("format-tab-title", function(tab)
   elseif
     string.match(pane_title, "colima")
     or string.match(pane_title, "docker")
-    or string.match(pane_title, "tongo")
+    or string.match(pane_title, "vi-mongo")
   then
     pane_bg_color = "grey"
   -- Pay metrics
@@ -137,7 +137,7 @@ wezterm.on("gui-startup", function()
   --
   -- vi-mongo - tui for mongodb
   _, another_pane, _ = window:spawn_tab({})
-  another_pane:send_text("wrt tongo\ntongo -u mongodb://localhost:27017\n")
+  another_pane:send_text("wrt vi-mongo\nvi-mongo --connection-name localhost -j scam-report/item33700")
   --
   -- obsperso - personal obsidian vault
   _, another_pane, _ = window:spawn_tab({})
