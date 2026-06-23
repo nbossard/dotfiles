@@ -105,6 +105,8 @@
     //     }
     //   }
     // },
+
+    // see model list : https://doc.diod.tech.orange/llmproxy4code/how_to_access/models_list.fr/
     "llmproxy4code": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LLM Proxy 4 code (via la console)",
