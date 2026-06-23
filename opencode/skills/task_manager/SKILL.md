@@ -1,6 +1,6 @@
 ---
 name: task_manager
-description: This skill is to help managing tasks.
+description: CHARGE toujours ce skill lorsque tu dois rechercher, modifier ajouter des tâches dans obsidians.
 license: MIT
 metadata:
   audience: developers
@@ -69,6 +69,12 @@ Attention : voici une journée typique de travail à prendre en compte dans la p
 
 Attention: la session de discussion reste ouverte toute la journée, tu dois donc réactualiser l'heure courante avec la commande bash `dateù avant chaque réponse.
 
+### Exceptions temporaires de priorisation
+
+Dans les cas suivants, il est hautement prioritaire de faire :
+- si on est dans les 4 derniers jours du mois, je dois remplir Clarity en avance
+- si je suis au boulot et que j'ai des document à imprimer, le faire de suite
+
 ### Requêtes Obsidian Tasks utiles
 
 **Urgences du jour (high/highest priority, due today/tomorrow) :**
@@ -99,6 +105,17 @@ due before today
 ## Outils à utiliser
 
 - **Recherche** : utiliser l'outil `omnisearch` pour chercher dans le repo
-- **Gestion des tâches** : utiliser `obsidian cli` (ex: `obsidian tasks done`) pour que les tâches répétitives se réinstancient correctement
+
+###  Gestion des tâches
+
+utiliser `obsidian cli`
+
+exemple pour obsidian tasks done :
+`obsidian task done file="Permanent/Sites/Intranet/Clarity" line=23`
+
+Attention, tu dois vérifier que les tâches avec un repeat se recréent bien lorsqu'on  les marque comme done.
+
+## Documentatio
+
 - **Documentation GTD** : voir [Permanent/Obsidian/Getting Things Done.md](../../Permanent/Obsidian/Getting%20Things%20Done.md)
 
