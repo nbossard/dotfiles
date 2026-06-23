@@ -260,5 +260,30 @@
       "agent": "plan",
       "model": "llmproxy/vertex_ai/claude-opus-4-5"
     }
+  },
+  "agent": {
+    "plan": {
+      "permission": {
+        "skill": {
+          "plannotator-*": "deny",
+            "git remote get-url origin": "allow",
+            "glab issue view*": "allow"
+        }
+      }
+    },
+    "build": {
+      "permission": {
+        "skill": {
+          "which*": "allow",
+          "find*": "allow",
+          "sort*": "allow",
+          "git remote get-url origin": "allow",
+          "glab issue view*": "allow",
+          "lychee *": "allow",
+          "jq *": "allow",
+          "npm run lychee*": "allow"
+        }
+      }
+    }
   }
 }
