@@ -1,6 +1,6 @@
 ---
-name: jsdoc
-description: ALWAYS load this skill BEFORE writing or adding JSDoc comments to JavaScript/TypeScript functions, classes, or types. Generates strict JSDoc following @typedef conventions.
+name: jsdoc-typescript
+description: ALWAYS load this skill BEFORE writing or adding JSDoc comments to typescript functions, classes, or types. Generates strict JSDoc following @typedef conventions. DO NOT USE this skill when modifying javascript files.
 license: MIT
 metadata:
   audience: developers
@@ -10,21 +10,20 @@ metadata:
 
 ## When to use me
 Load this skill AUTOMATICALLY when:
-- Adding or modifying documentation to JavaScript/TypeScript code
+- Adding or modifying documentation to TypeScript code
 - Creating JSDoc comments for functions, methods, or classes
 - Documenting type definitions or interfaces
 - User asks to "document", "add JSDoc", or "comment" code
 
 ## Rules (STRICT - follow exactly)
 1. Use @typedef for complex types with @property annotations
-2. @param {TypeName} paramName - With short descriptions
-3. @returns {TypeName} - Simple return type only
+2. @param paramName - With short descriptions
+3. @returns - Simple return type only
 4. include if useful: @throws, @deprecated
 6. One-line format for simple functions: /** @param {Type} name @returns {Type} */
 
 ## Type pattern examples
-```javascript
-
+```typescript
 
 /**
  * @typedef {Object} AnalysisQrcode
@@ -41,8 +40,8 @@ Load this skill AUTOMATICALLY when:
  */
 
  /**
- * @param {Analysis} analysis
+ * @param analysis - lorem ipsum
  * @returns {void}
  */
-function setup(analysis) { }
+function setup(analysis : Analysis) { }
 ```
