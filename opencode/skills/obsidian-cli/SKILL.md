@@ -556,30 +556,6 @@ obsidian backlinks file="My Note"
 
 Use `--copy` on any command to copy output to clipboard. Use `silent` to prevent files from opening. Use `total` on list commands to get a count.
 
-## Plugin development
-
-### Develop/test cycle
-
-After making code changes to a plugin or theme, follow this workflow:
-
-1. **Reload** the plugin to pick up changes:
-   ```bash
-   obsidian plugin:reload id=my-plugin
-   ```
-2. **Check for errors** — if errors appear, fix and repeat from step 1:
-   ```bash
-   obsidian dev:errors
-   ```
-3. **Verify visually** with a screenshot or DOM inspection:
-   ```bash
-   obsidian dev:screenshot path=screenshot.png
-   obsidian dev:dom selector=".workspace-leaf" text
-   ```
-4. **Check console output** for warnings or unexpected logs:
-   ```bash
-   obsidian dev:console level=error
-   ```
-
 ### Additional developer commands
 
 Run JavaScript in the app context:
@@ -601,4 +577,14 @@ obsidian dev:mobile on
 ```
 
 Run `obsidian help` to see additional developer commands including CDP and debugger controls.
+
+## Additional info on tasks command
+
+`obsidian tasks` command does not support filtering on tags.
+
+If you are searching only for tasks with tag #perso, use following trick :
+
+```bash
+obsidian tasks todo format=json | jq '.[] | select(.text | contains("#perso"))'
+```
 
