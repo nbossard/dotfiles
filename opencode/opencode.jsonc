@@ -79,13 +79,29 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "LM Studio (local)",
       "options": {
-        "baseURL": "http://localhost:9988/v1/",
+        // en local
+        // "baseURL": "http://localhost:9988/v1/",
+        // sur le pc de gamer de albin
+        "baseURL": "http://192.168.1.25:1234/v1/",
         "apiKey": "lm-studio"
       },
       "models": {
         "qwen/qwen3-coder-next": {
-          "name": "Qwen Coder next",
+          "name": "Qwen 3 Coder next",
           "family": "Qwen",
+          "reasoning": true,
+          "tool_call": true
+        },
+       "qwen/qwen2.5-coder-14b": {
+          "name": "Qwen 2.5 Coder",
+          "family": "Qwen",
+          "limit": { "output": 8192, "context": 32768 },
+          "reasoning": true,
+          "tool_call": true
+        },
+        "lumynax-coder-deepseek-v2-lite-16b": {
+          "name": "Lumynax Deepseek v2 Lite 16B",
+          "family": "Lumynax",
           "reasoning": true,
           "tool_call": true
         }
