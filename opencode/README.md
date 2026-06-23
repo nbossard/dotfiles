@@ -3,6 +3,9 @@
 Files in this folder should be ln to folder `~/.config/opencode` :
 `ln -s ~/dotfiles/opencode/opencode.jsonc opencode.jsonc`
 `ln -s ~/dotfiles/opencode/AGENTS.md AGENTS.md`
+`ln -s ~/dotfiles/opencode/skills ./skills`
+`ln -s ~/dotfiles/opencode/agents ./agents`
+
 
 Folder contains :
 
