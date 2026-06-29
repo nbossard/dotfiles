@@ -139,6 +139,10 @@ wezterm.on("gui-startup", function()
   _, another_pane, _ = window:spawn_tab({})
   another_pane:send_text("wrt vi-mongo\nvi-mongo --connection-name localhost -j scam-report/item33700")
   --
+  -- btop
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("wrt btop\nbtop -u 1500")
+  --
   -- obsperso - personal obsidian vault
   _, another_pane, _ = window:spawn_tab({})
   another_pane:send_text("cd perso/obsidian/obsperso\nwrt obsperso\n")
