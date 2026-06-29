@@ -1,8 +1,8 @@
 # README
 
 Files in this folder should be ln to folder `~/.config/opencode` :
-`ln -s ~/dotfiles/opencode/opencode.jsonc opencode.jsonc`
-`ln -s ~/dotfiles/opencode/AGENTS.md AGENTS.md`
+`rm ~/.config/opencode/opencode.jsonc; ln -s ~/dotfiles/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc`
+`rm ~/.config/opencode/AGENTS.md; ln -s ~/dotfiles/opencode/AGENTS.md ~/.config/opencode/AGENTS.md`
 `ln -s ~/dotfiles/opencode/skills ./skills`
 `ln -s ~/dotfiles/opencode/agents ./agents`
 
