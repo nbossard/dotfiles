@@ -238,7 +238,8 @@
       "head *" : "allow",
       "tail *" : "allow",
       "obsidian tasks*" : "allow",
-      "gog --account machboboss@gmail.com calendar*": "allow"
+      "gog --account machboboss@gmail.com calendar*": "allow",
+      "omnisearch query *": "allow"
 
     }
   },
@@ -283,14 +284,17 @@
       "permission": {
         "skill": {
           "plannotator-*": "deny",
-            "git remote get-url origin": "allow",
-            "glab issue view*": "allow"
+          "edit": "deny"
+        },
+        "bash": {
+          "git remote get-url origin": "allow",
+          "glab issue view*": "allow"
         }
       }
     },
     "build": {
       "permission": {
-        "skill": {
+        "bash": {
           "which*": "allow",
           "find*": "allow",
           "sort*": "allow",
