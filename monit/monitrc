@@ -1,0 +1,36 @@
+###############################################################################
+## Monit control file - ~/.monitrc
+###############################################################################
+
+# Daemon mode: check every 30 seconds
+set daemon 30
+
+# Log to syslog
+set log syslog
+
+# HTTP interface (required for monit CLI commands)
+set httpd port 2812 and
+    use address localhost
+    allow localhost
+    allow admin:monit
+
+###############################################################################
+## CPU Monitoring - Alertes processus gourmands
+## Alerte si CPU > 90% pendant ~2 minutes
+## Rappel toutes les 5 minutes tant que le problème persiste
+###############################################################################
+
+# Neovim - vérifie TOUS les processus nvim
+check program nvim_cpu with path "/Users/nbossard/bin/check-cpu.sh nvim 90"
+    every "* * * * *"
+    if status = 1 for 2 cycles then exec "/Users/nbossard/bin/monit-notify.sh" repeat every 5 cycles
+
+# Google Chrome - vérifie TOUS les processus Chrome
+check program chrome_cpu with path "/Users/nbossard/bin/check-cpu.sh 'Google Chrome' 90"
+    every "* * * * *"
+    if status = 1 for 2 cycles then exec "/Users/nbossard/bin/monit-notify.sh" repeat every 5 cycles
+
+# Firefox - vérifie TOUS les processus Firefox
+check program firefox_cpu with path "/Users/nbossard/bin/check-cpu.sh firefox 90"
+    every "* * * * *"
+    if status = 1 for 2 cycles then exec "/Users/nbossard/bin/monit-notify.sh" repeat every 5 cycles
