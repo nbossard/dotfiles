@@ -27,6 +27,14 @@ I prefer installing tools using homebrew.
 
 I like bash scripts, I hate python scripts.
 
+### config files
+
+my config giles are located in two folders (that are git repo) :
+
+- "~/dotfiles/" ==> various programs config files, including opencode, jj, eza, brewfiles, prettier, wezterm,...
+- "~/dotvim" ==> neovim related config files. And especially "init.lua"
+
+
 ### continuous learning
 
 I am a senior developer, but I always want to learn.
