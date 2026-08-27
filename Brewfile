@@ -336,6 +336,9 @@ cask "chromium"
 # Install AI-powered code editor
 cask "cursor"
 
+# Mongo DB compass
+cask "compass"
+
 # Install FTP/SFTP client
 cask "cyberduck"
 
