@@ -38,3 +38,15 @@ filter:
 kind: url
 name: neovim_conf
 url: https://neovimconf.live/
+---
+filter:
+  - html2text
+kind: url
+name: bolchoi arena
+url: https://www.editions-delcourt.fr/bd/series/serie-bolchoi-arena
+---
+filter:
+- html2text
+kind: url
+name: la cuisine des ogres
+url: https://www.editions-ruedesevres.fr/La-Cuisine-des-Ogres-Trois-fois-morte
