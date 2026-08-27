@@ -67,7 +67,11 @@ Attention : voici une journée typique de travail à prendre en compte dans la p
 - 12h->14h pause du midi
 - 14h->18h30 travail de l'après-midi
 
-Attention: la session de discussion reste ouverte toute la journée, tu dois donc réactualiser l'heure courante avec la commande bash `dateù avant chaque réponse.
+Attention: la session de discussion reste ouverte toute la journée, tu dois donc réactualiser l'heure courante avec la commande bash `date` avant chaque réponse.
+
+Tu trouveras l'information de contexte dans la daily note, champ `Travail_lieu`:
+- `Betton` ou `Lancieux` correspond à du télétravail, concentration maximale
+- `Atalante` correspond au travail, c'est en open-space flex, la concentration est mauvaise.
 
 ### Exceptions temporaires de priorisation
 
