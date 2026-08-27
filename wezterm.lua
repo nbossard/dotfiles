@@ -204,12 +204,21 @@ wezterm.on("gui-startup", function()
   -- another_pane:send_text "cd my-security-partner/gsma-bot-server\nopencode\n"
   --
   -- scam report
-  -- import33700 run server
-  _, another_pane, _ = window:spawn_tab({})
-  another_pane:send_text("cd my-security-partner/fraudr/import33700\nwrt imp33700-srv\nexport PORT=3001 && npm run start\n")
   -- import33700
   _, another_pane, _ = window:spawn_tab({})
   another_pane:send_text("cd my-security-partner/fraudr/import33700\nwrt imp33700\n")
+  -- scam-report run server
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/scam-report\nnpm run start")
+  -- scam-report nvim
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/scam-report\nnvim\n")
+  -- scam-report opencode
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/scam-report\nopencode\n")
+  -- scam-report jjui
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/scam-report\njjui\n")
 end)
 
 -- Generic configuration
