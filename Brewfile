@@ -41,6 +41,11 @@ brew "autojump"
 brew "bat"
 # Install shell completion generator
 brew "carapace"
+
+# Install image to ascii art converter
+# used by yazi to display images when fails
+brew "chafa"
+
 # Install code minimap visualization tool
 brew "code-minimap"
 # Install container runtime for macOS
@@ -213,8 +218,13 @@ brew "qcachegrind"
 brew "ranger"
 # Install enhanced Make with debugging
 brew "remake"
+
 # Install dependency update automation tool
 brew "renovate"
+
+# library required by yazi to display SVG files
+brew "resvg"
+
 # Install fast text search tool
 brew "ripgrep"
 
@@ -334,7 +344,8 @@ cask "bruno"
 cask "chromium"
 
 # Install AI-powered code editor
-cask "cursor"
+# non recommandé Orange, PRB de confidentialité
+# cask "cursor"
 
 # Mongo DB compass
 cask "compass"
