@@ -165,7 +165,7 @@ wezterm.on("gui-startup", function()
   another_pane:send_text("cd perso/photos_perso\nwrt photos_perso\nbat README.md -p\n")
   -- photos_perso ssh raspberry pi
   _, another_pane, _ = window:spawn_tab({})
-  another_pane:send_text("ssh ftpuser@rasp5gitphotos-ethernet -p 31415\nwrt photos_perso\n")
+  another_pane:send_text("wrt photos_perso\nssh -p 31415 -t ftpuser@rasp5gitphotos-ethernet 'cd ftp/photos/dailys && exec $SHELL -l'\n")
   --
   -- book albin
   _, another_pane, _ = window:spawn_tab({})
