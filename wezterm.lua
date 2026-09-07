@@ -19,6 +19,11 @@ config.keys = {
   -- vim inspired commands
   { key = "h", mods = "CTRL", action = act.MoveTabRelative(-1) },
   { key = "l", mods = "CTRL", action = act.MoveTabRelative(1) },
+  -- Move current pane/tab to a new window
+  { key = "!", mods = "CTRL", action = wezterm.action_callback(function(_, pane)
+      pane:move_to_new_window()
+    end),
+  },
 }
 
 config.font_size = 16.0
