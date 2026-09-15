@@ -127,40 +127,6 @@
     //   }
     // },
 
-    // see model list : https://doc.diod.tech.orange/llmproxy4code/how_to_access/models_list.fr/
-    "llmproxy4code": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "LLM Proxy 4 code (via la console)",
-      "options": {
-        "baseURL": "https://api.llmproxy-code.ai.orange",
-        "apiKey": "{env:LLMPROXY4CODE}"
-      },
-      "models": {
-        "openai/gpt-5.1-codex": {
-          "name": "GPT 5 1 Codex - Pour la génération de code",
-	  "family": "GPT",
-          "cost": { "input": 1.25, "output": 10 }
-        },
-        "openai/gpt-5.1-codex-max": {
-          "name": "GPT 5 1 Codex Max Pour la génération de code nécessitant plus de capacités",
-	  "family": "GPT",
-          "cost": { "input": 1.25, "output": 10 }
-        },
-        "openai/gpt-5.2": {
-          "name": "GPT 5 2 - Pour un usage général (chat, analyse)",
-	  "family": "GPT",
-          "cost": { "input": 1.75, "output": 14 }
-        },
-        "openai/gpt-5.2-codex": {
-          "name": "GPT 5 2 Codex - Pour la génération de code",
-	  "family": "GPT",
-          "cost": { "input": 1.75, "output": 14 }
-        },
-        "openai/omni-moderation-latest": {
-          "name": "Omni Moderation Latest - designed to detect harmful content - tarifs inconnus"
-        }
-      }
-    },
     // https://doc.diod.tech.orange/openrama/how_to_use/anythingllm.en/
     // see model list : https://doc.diod.tech.orange/openrama/how_to_access/models_list.en/
     // or (BETTER)
