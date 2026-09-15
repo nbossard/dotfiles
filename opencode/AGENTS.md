@@ -23,7 +23,8 @@ I like using following command line tools:
 I like using following GUI tools :
 - fork (https://git-fork.com/) "A fast and friendly git client"
 
-I prefer installing tools using homebrew.
+I prefer installing tools using homebrew, so before suggesting installing with `npm install -g something`
+check there is not a homebrew formula on `https://formulae.brew.sh/formula/something`
 
 I like bash scripts, I hate python scripts.
 
