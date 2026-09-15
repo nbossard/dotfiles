@@ -224,6 +224,15 @@ wezterm.on("gui-startup", function()
   -- scam-report jjui
   _, another_pane, _ = window:spawn_tab({})
   another_pane:send_text("cd my-security-partner/scam-report\njjui\n")
+  -- scam-report glab-tui
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/scam-report\nglab-tui")
+  -- scam-report GCP tunneling, using script provided by Michael LETOUZEY
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/GCP\nwrt GCP\n./gcp_tunnel.sh dev")
+  -- scam-report k9S, requires GCP tunneling to be active
+  _, another_pane, _ = window:spawn_tab({})
+  another_pane:send_text("cd my-security-partner/scam-report\necho Requires GCP tunneling to be launched first!!\nk9s")
 end)
 
 -- Generic configuration

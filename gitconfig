@@ -34,7 +34,7 @@
 	# Active la coloration des lignes déplacées dans les diffs.
 	# default utilise les paramètres de coloration par défaut de delta.
 	colorMoved = default
- 
+
 
 [difftool]
 	prompt = true
