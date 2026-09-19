@@ -7,6 +7,7 @@ Specs YAML de complétion pour des commandes non supportées nativement par cara
 | Fichier | Commande | Description |
 |---|---|---|
 | `git-annex.yaml` | `git-annex` | Complétion complète : sous-commandes, flags, remotes dynamiques |
+| `obsidian.yaml` | `obsidian` | ~100 commandes avec paramètres, complétion dynamique via `obsidian files/folders/vaults/templates/plugins` |
 
 ## Format
 

@@ -1,0 +1,1156 @@
+name: obsidian
+description: CLI to interact with a running Obsidian instance
+
+commands:
+
+  # ------------------------------------------------------------------ #
+  # Fichiers                                                             #
+  # ------------------------------------------------------------------ #
+
+  - name: read
+    description: read file contents
+    completion:
+      positionalany:
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: create
+    description: create a new file
+    completion:
+      positionalany:
+        - "name="
+        - "content="
+        - "overwrite"
+        - "open"
+        - "newtab"
+        - "silent"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian templates | sed s/^/template=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: append
+    description: append content to a file
+    completion:
+      positionalany:
+        - "content="
+        - "inline"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: prepend
+    description: prepend content to a file
+    completion:
+      positionalany:
+        - "content="
+        - "inline"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: open
+    description: open a file
+    completion:
+      positionalany:
+        - "newtab"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: delete
+    description: delete a file
+    completion:
+      positionalany:
+        - "permanent"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: move
+    description: move or rename a file
+    completion:
+      positionalany:
+        - "to="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: rename
+    description: rename a file
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: file
+    description: show file info
+    completion:
+      positionalany:
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: files
+    description: list files in the vault
+    completion:
+      positionalany:
+        - "ext="
+        - "total"
+        - "$(obsidian folders | sed s/^/folder=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: folder
+    description: show folder info
+    completion:
+      positionalany:
+        - "info=files"
+        - "info=folders"
+        - "info=size"
+        - "$(obsidian folders | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: folders
+    description: list folders in the vault
+    completion:
+      positionalany:
+        - "total"
+        - "$(obsidian folders | sed s/^/folder=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Recherche                                                            #
+  # ------------------------------------------------------------------ #
+
+  - name: search
+    description: search vault for text
+    completion:
+      positionalany:
+        - "query="
+        - "limit="
+        - "total"
+        - "case"
+        - "format=text"
+        - "format=json"
+        - "$(obsidian folders | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: search:context
+    description: search with matching line context
+    completion:
+      positionalany:
+        - "query="
+        - "limit="
+        - "case"
+        - "format=text"
+        - "format=json"
+        - "$(obsidian folders | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: search:open
+    description: open search view
+    completion:
+      positionalany:
+        - "query="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Daily                                                                #
+  # ------------------------------------------------------------------ #
+
+  - name: daily
+    description: open daily note
+    completion:
+      positionalany:
+        - "paneType=tab"
+        - "paneType=split"
+        - "paneType=window"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: daily:read
+    description: read daily note contents
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: daily:append
+    description: append content to daily note
+    completion:
+      positionalany:
+        - "content="
+        - "inline"
+        - "open"
+        - "paneType=tab"
+        - "paneType=split"
+        - "paneType=window"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: daily:prepend
+    description: prepend content to daily note
+    completion:
+      positionalany:
+        - "content="
+        - "inline"
+        - "open"
+        - "paneType=tab"
+        - "paneType=split"
+        - "paneType=window"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: daily:path
+    description: get daily note path
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Historique / Diff                                                    #
+  # ------------------------------------------------------------------ #
+
+  - name: history
+    description: list file history versions
+    completion:
+      positionalany:
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: history:list
+    description: list files with history
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: history:open
+    description: open file recovery
+    completion:
+      positionalany:
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: history:read
+    description: read a file history version
+    completion:
+      positionalany:
+        - "version="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: history:restore
+    description: restore a file history version
+    completion:
+      positionalany:
+        - "version="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: diff
+    description: list or diff local/sync versions
+    completion:
+      positionalany:
+        - "from="
+        - "to="
+        - "filter=local"
+        - "filter=sync"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Métadonnées                                                          #
+  # ------------------------------------------------------------------ #
+
+  - name: tags
+    description: list tags in the vault
+    completion:
+      positionalany:
+        - "total"
+        - "counts"
+        - "sort=count"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "active"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: tag
+    description: get tag info
+    completion:
+      positionalany:
+        - "total"
+        - "verbose"
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: properties
+    description: list properties in the vault
+    completion:
+      positionalany:
+        - "total"
+        - "counts"
+        - "sort=count"
+        - "format=yaml"
+        - "format=json"
+        - "format=tsv"
+        - "active"
+        - "name="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: property:set
+    description: set a property on a file
+    completion:
+      positionalany:
+        - "name="
+        - "value="
+        - "type=text"
+        - "type=list"
+        - "type=number"
+        - "type=checkbox"
+        - "type=date"
+        - "type=datetime"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: property:read
+    description: read a property value from a file
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: property:remove
+    description: remove a property from a file
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Tâches                                                               #
+  # ------------------------------------------------------------------ #
+
+  - name: tasks
+    description: list tasks in the vault
+    completion:
+      positionalany:
+        - "total"
+        - "done"
+        - "todo"
+        - "verbose"
+        - "active"
+        - "daily"
+        - "status="
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "format=text"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: task
+    description: show or update a task
+    completion:
+      positionalany:
+        - "ref="
+        - "line="
+        - "toggle"
+        - "done"
+        - "todo"
+        - "daily"
+        - "status="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Navigation / Analyse                                                 #
+  # ------------------------------------------------------------------ #
+
+  - name: backlinks
+    description: list backlinks to a file
+    completion:
+      positionalany:
+        - "counts"
+        - "total"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: links
+    description: list outgoing links from a file
+    completion:
+      positionalany:
+        - "total"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: orphans
+    description: list files with no incoming links
+    completion:
+      positionalany:
+        - "total"
+        - "all"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: deadends
+    description: list files with no outgoing links
+    completion:
+      positionalany:
+        - "total"
+        - "all"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: unresolved
+    description: list unresolved links in vault
+    completion:
+      positionalany:
+        - "total"
+        - "counts"
+        - "verbose"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: outline
+    description: show headings for the current file
+    completion:
+      positionalany:
+        - "total"
+        - "format=tree"
+        - "format=md"
+        - "format=json"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: recents
+    description: list recently opened files
+    completion:
+      positionalany:
+        - "total"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: wordcount
+    description: count words and characters
+    completion:
+      positionalany:
+        - "words"
+        - "characters"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: aliases
+    description: list aliases in the vault
+    completion:
+      positionalany:
+        - "total"
+        - "verbose"
+        - "active"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Plugins                                                              #
+  # ------------------------------------------------------------------ #
+
+  - name: plugins
+    description: list installed plugins
+    completion:
+      positionalany:
+        - "filter=core"
+        - "filter=community"
+        - "versions"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugins:enabled
+    description: list enabled plugins
+    completion:
+      positionalany:
+        - "filter=core"
+        - "filter=community"
+        - "versions"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugins:restrict
+    description: toggle or check restricted mode
+    completion:
+      positionalany:
+        - "on"
+        - "off"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugin
+    description: get plugin info
+    completion:
+      positionalany:
+        - "$(obsidian plugins | sed s/^/id=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugin:enable
+    description: enable a plugin
+    completion:
+      positionalany:
+        - "filter=core"
+        - "filter=community"
+        - "$(obsidian plugins | sed s/^/id=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugin:disable
+    description: disable a plugin
+    completion:
+      positionalany:
+        - "filter=core"
+        - "filter=community"
+        - "$(obsidian plugins | sed s/^/id=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugin:install
+    description: install a community plugin
+    completion:
+      positionalany:
+        - "enable"
+        - "id="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugin:uninstall
+    description: uninstall a community plugin
+    completion:
+      positionalany:
+        - "$(obsidian plugins | sed s/^/id=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: plugin:reload
+    description: reload a plugin (for developers)
+    completion:
+      positionalany:
+        - "$(obsidian plugins | sed s/^/id=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Templates                                                            #
+  # ------------------------------------------------------------------ #
+
+  - name: templates
+    description: list templates
+    completion:
+      positionalany:
+        - "total"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: template:insert
+    description: insert template into active file
+    completion:
+      positionalany:
+        - "$(obsidian templates | sed s/^/name=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: template:read
+    description: read template content
+    completion:
+      positionalany:
+        - "resolve"
+        - "title="
+        - "$(obsidian templates | sed s/^/name=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Vault                                                                #
+  # ------------------------------------------------------------------ #
+
+  - name: vault
+    description: show vault info
+    completion:
+      positionalany:
+        - "info=name"
+        - "info=path"
+        - "info=files"
+        - "info=folders"
+        - "info=size"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: vaults
+    description: list known vaults
+    completion:
+      positionalany:
+        - "total"
+        - "verbose"
+
+  - name: reload
+    description: reload the vault
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: restart
+    description: restart the app
+
+  - name: version
+    description: show Obsidian version
+
+  - name: random
+    description: open a random note
+    completion:
+      positionalany:
+        - "newtab"
+        - "$(obsidian folders | sed s/^/folder=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: random:read
+    description: read a random note
+    completion:
+      positionalany:
+        - "$(obsidian folders | sed s/^/folder=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Bookmarks                                                            #
+  # ------------------------------------------------------------------ #
+
+  - name: bookmarks
+    description: list bookmarks
+    completion:
+      positionalany:
+        - "total"
+        - "verbose"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: bookmark
+    description: add a bookmark
+    completion:
+      positionalany:
+        - "subpath="
+        - "search="
+        - "url="
+        - "title="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian folders | sed s/^/folder=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Thèmes                                                               #
+  # ------------------------------------------------------------------ #
+
+  - name: themes
+    description: list installed themes
+    completion:
+      positionalany:
+        - "versions"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: theme
+    description: show active theme or get info
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: theme:set
+    description: set active theme
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: theme:install
+    description: install a community theme
+    completion:
+      positionalany:
+        - "enable"
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: theme:uninstall
+    description: uninstall a theme
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # CSS Snippets                                                         #
+  # ------------------------------------------------------------------ #
+
+  - name: snippets
+    description: list installed CSS snippets
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: snippets:enabled
+    description: list enabled CSS snippets
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: snippet:enable
+    description: enable a CSS snippet
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: snippet:disable
+    description: disable a CSS snippet
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Tabs / Workspace                                                     #
+  # ------------------------------------------------------------------ #
+
+  - name: tabs
+    description: list open tabs
+    completion:
+      positionalany:
+        - "ids"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: tab:open
+    description: open a new tab
+    completion:
+      positionalany:
+        - "group="
+        - "view="
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: workspace
+    description: show workspace tree
+    completion:
+      positionalany:
+        - "ids"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Hotkeys                                                              #
+  # ------------------------------------------------------------------ #
+
+  - name: hotkeys
+    description: list hotkeys
+    completion:
+      positionalany:
+        - "total"
+        - "verbose"
+        - "all"
+        - "format=json"
+        - "format=tsv"
+        - "format=csv"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: hotkey
+    description: get hotkey for a command
+    completion:
+      positionalany:
+        - "verbose"
+        - "id="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Commands Obsidian                                                    #
+  # ------------------------------------------------------------------ #
+
+  - name: commands
+    description: list available Obsidian commands
+    completion:
+      positionalany:
+        - "filter="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: command
+    description: execute an Obsidian command
+    completion:
+      positionalany:
+        - "id="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Homepage                                                             #
+  # ------------------------------------------------------------------ #
+
+  - name: homepage
+    description: open the homepage
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: homepage:read
+    description: read homepage contents
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Bases                                                                #
+  # ------------------------------------------------------------------ #
+
+  - name: bases
+    description: list all base files in vault
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: base:create
+    description: create a new item in a base
+    completion:
+      positionalany:
+        - "view="
+        - "name="
+        - "content="
+        - "open"
+        - "newtab"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: base:query
+    description: query a base and return results
+    completion:
+      positionalany:
+        - "view="
+        - "format=json"
+        - "format=csv"
+        - "format=tsv"
+        - "format=md"
+        - "format=paths"
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian files | sed s/^/path=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: base:views
+    description: list views in the current base file
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # QuickAdd                                                             #
+  # ------------------------------------------------------------------ #
+
+  - name: quickadd
+    description: run a QuickAdd choice
+    completion:
+      positionalany:
+        - "choice="
+        - "id="
+        - "vars="
+        - "ui"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: quickadd:run
+    description: run a QuickAdd choice
+    completion:
+      positionalany:
+        - "choice="
+        - "id="
+        - "vars="
+        - "ui"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: quickadd:check
+    description: check missing inputs for a QuickAdd choice
+    completion:
+      positionalany:
+        - "choice="
+        - "id="
+        - "vars="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: quickadd:list
+    description: list QuickAdd choices
+    completion:
+      positionalany:
+        - "type=Template"
+        - "type=Capture"
+        - "type=Macro"
+        - "type=Multi"
+        - "commands"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: quickadd:interactive
+    description: run a QuickAdd choice interactively
+    completion:
+      positionalany:
+        - "choice="
+        - "id="
+        - "vars="
+        - "ui"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: quickadd:run-template
+    description: run a QuickAdd template choice
+    completion:
+      positionalany:
+        - "choice="
+        - "id="
+        - "vars="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Map View                                                             #
+  # ------------------------------------------------------------------ #
+
+  - name: mv-focus-note
+    description: "[Map View]: focus a note in Map View"
+    completion:
+      positionalany:
+        - "$(obsidian files | sed s/^/file=/)"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: mv-geosearch
+    description: "[Map View]: search for a location by name"
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: mv-geosearch-as-front-matter
+    description: "[Map View]: search for a location and return as front matter"
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: mv-geosearch-as-inline
+    description: "[Map View]: search for a location and return as inline geolink"
+    completion:
+      positionalany:
+        - "name="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Dev                                                                  #
+  # ------------------------------------------------------------------ #
+
+  - name: eval
+    description: execute JavaScript and return result
+    completion:
+      positionalany:
+        - "code="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: devtools
+    description: toggle Electron dev tools
+    completion:
+      positionalany:
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:console
+    description: show captured console messages
+    completion:
+      positionalany:
+        - "clear"
+        - "limit="
+        - "level=log"
+        - "level=warn"
+        - "level=error"
+        - "level=info"
+        - "level=debug"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:errors
+    description: show captured errors
+    completion:
+      positionalany:
+        - "clear"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:screenshot
+    description: take a screenshot
+    completion:
+      positionalany:
+        - "path="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:cdp
+    description: run a Chrome DevTools Protocol command
+    completion:
+      positionalany:
+        - "method="
+        - "params="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:css
+    description: inspect CSS with source locations
+    completion:
+      positionalany:
+        - "selector="
+        - "prop="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:debug
+    description: attach/detach Chrome DevTools Protocol debugger
+    completion:
+      positionalany:
+        - "on"
+        - "off"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:dom
+    description: query DOM elements
+    completion:
+      positionalany:
+        - "selector="
+        - "total"
+        - "text"
+        - "inner"
+        - "all"
+        - "attr="
+        - "css="
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  - name: dev:mobile
+    description: toggle mobile emulation
+    completion:
+      positionalany:
+        - "on"
+        - "off"
+        - "$(obsidian vaults | sed s/^/vault=/)"
+
+  # ------------------------------------------------------------------ #
+  # Help                                                                 #
+  # ------------------------------------------------------------------ #
+
+  - name: help
+    description: show list of all available commands
+    completion:
+      positional:
+        - - "aliases"
+          - "append"
+          - "backlinks"
+          - "base:create"
+          - "base:query"
+          - "base:views"
+          - "bases"
+          - "bookmark"
+          - "bookmarks"
+          - "command"
+          - "commands"
+          - "create"
+          - "daily"
+          - "daily:append"
+          - "daily:path"
+          - "daily:prepend"
+          - "daily:read"
+          - "deadends"
+          - "delete"
+          - "dev:cdp"
+          - "dev:console"
+          - "dev:css"
+          - "dev:debug"
+          - "dev:dom"
+          - "dev:errors"
+          - "dev:mobile"
+          - "dev:screenshot"
+          - "devtools"
+          - "diff"
+          - "eval"
+          - "file"
+          - "files"
+          - "folder"
+          - "folders"
+          - "help"
+          - "history"
+          - "history:list"
+          - "history:open"
+          - "history:read"
+          - "history:restore"
+          - "homepage"
+          - "homepage:read"
+          - "hotkey"
+          - "hotkeys"
+          - "links"
+          - "move"
+          - "mv-focus-note"
+          - "mv-geosearch"
+          - "mv-geosearch-as-front-matter"
+          - "mv-geosearch-as-inline"
+          - "open"
+          - "orphans"
+          - "outline"
+          - "plugin"
+          - "plugin:disable"
+          - "plugin:enable"
+          - "plugin:install"
+          - "plugin:reload"
+          - "plugin:uninstall"
+          - "plugins"
+          - "plugins:enabled"
+          - "plugins:restrict"
+          - "prepend"
+          - "properties"
+          - "property:read"
+          - "property:remove"
+          - "property:set"
+          - "quickadd"
+          - "quickadd:check"
+          - "quickadd:interactive"
+          - "quickadd:list"
+          - "quickadd:run"
+          - "quickadd:run-template"
+          - "random"
+          - "random:read"
+          - "read"
+          - "recents"
+          - "reload"
+          - "rename"
+          - "restart"
+          - "search"
+          - "search:context"
+          - "search:open"
+          - "snippet:disable"
+          - "snippet:enable"
+          - "snippets"
+          - "snippets:enabled"
+          - "tab:open"
+          - "tabs"
+          - "tag"
+          - "tags"
+          - "task"
+          - "tasks"
+          - "template:insert"
+          - "template:read"
+          - "templates"
+          - "theme"
+          - "theme:install"
+          - "theme:set"
+          - "theme:uninstall"
+          - "themes"
+          - "unresolved"
+          - "vault"
+          - "vaults"
+          - "version"
+          - "wordcount"
+          - "workspace"

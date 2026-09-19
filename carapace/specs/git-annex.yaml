@@ -41,7 +41,7 @@ commands:
       --failed: operate on files that recently failed
     completion:
       flag:
-        from: ["$execute(git remote)"]
+        from: ["$(git remote)"]
       positionalany: ["$files"]
 
   - name: drop
@@ -56,7 +56,7 @@ commands:
       --failed: operate on files that recently failed
     completion:
       flag:
-        from: ["$execute(git remote)"]
+        from: ["$(git remote)"]
       positionalany: ["$files"]
 
   - name: copy
@@ -74,8 +74,8 @@ commands:
       --failed: operate on files that recently failed
     completion:
       flag:
-        from: ["$execute(git remote)"]
-        to: ["$execute(git remote)"]
+        from: ["$(git remote)"]
+        to: ["$(git remote)"]
       positionalany: ["$files"]
 
   - name: move
@@ -91,8 +91,8 @@ commands:
       --failed: operate on files that recently failed
     completion:
       flag:
-        from: ["$execute(git remote)"]
-        to: ["$execute(git remote)"]
+        from: ["$(git remote)"]
+        to: ["$(git remote)"]
       positionalany: ["$files"]
 
   - name: sync
@@ -113,7 +113,7 @@ commands:
       --no-resolvemerge: do not automatically resolve merge conflicts
       --allow-unrelated-histories: allow merging unrelated histories
     completion:
-      positionalany: ["$execute(git remote)"]
+      positionalany: ["$(git remote)"]
 
   - name: push
     description: push content to remotes
@@ -126,7 +126,7 @@ commands:
       --cleanup: remove synced/ branches
       -A, --all: operate on all versions of all files
     completion:
-      positionalany: ["$execute(git remote)"]
+      positionalany: ["$(git remote)"]
 
   - name: pull
     description: pull content from remotes
@@ -140,12 +140,12 @@ commands:
       --no-resolvemerge: do not automatically resolve merge conflicts
       --allow-unrelated-histories: allow merging unrelated histories
     completion:
-      positionalany: ["$execute(git remote)"]
+      positionalany: ["$(git remote)"]
 
   - name: assist
     description: add files and sync changes with remotes
     completion:
-      positionalany: ["$execute(git remote)"]
+      positionalany: ["$(git remote)"]
 
   - name: mirror
     description: mirror content of files to/from another repository
@@ -155,18 +155,18 @@ commands:
       -A, --all: operate on all versions of all files
     completion:
       flag:
-        from: ["$execute(git remote)"]
-        to: ["$execute(git remote)"]
+        from: ["$(git remote)"]
+        to: ["$(git remote)"]
 
   - name: satisfy
     description: transfer and drop content as configured
     completion:
-      positionalany: ["$execute(git remote)"]
+      positionalany: ["$(git remote)"]
 
   - name: put
     description: send content of files to other repositories
     completion:
-      positionalany: ["$execute(git remote)"]
+      positionalany: ["$(git remote)"]
 
   # --- Etat et information ---
   - name: status
@@ -231,7 +231,7 @@ commands:
       --used-refspec=: refs to consider used
     completion:
       flag:
-        from: ["$execute(git remote)"]
+        from: ["$(git remote)"]
 
   - name: whereused
     description: lists repositories that have file content
@@ -300,7 +300,7 @@ commands:
       --failed: operate on files that recently failed
     completion:
       flag:
-        from: ["$execute(git remote)"]
+        from: ["$(git remote)"]
       positionalany: ["$files"]
 
   - name: repair
@@ -342,31 +342,31 @@ commands:
       --with-url: "configure remote with an annex:: url"
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: disableremote
     description: stop using a remote
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: renameremote
     description: changes name of special remote
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: configremote
     description: changes special remote configuration
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: describe
     description: change description of a repository
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   # --- Configuration ---
   - name: config
@@ -382,7 +382,7 @@ commands:
     description: get or set preferred content expression
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: groupwanted
     description: get or set groupwanted expression
@@ -391,7 +391,7 @@ commands:
     description: get or set required content expression
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: numcopies
     description: configure desired number of copies
@@ -403,19 +403,19 @@ commands:
     description: add a repository to a group
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: ungroup
     description: remove a repository from a group
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: schedule
     description: get or set scheduled jobs
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: vicfg
     description: edit configuration in git-annex branch
@@ -425,25 +425,25 @@ commands:
     description: trust a repository
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: untrust
     description: do not trust a repository
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: semitrust
     description: return repository to default trust level
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   - name: dead
     description: hide a lost repository or key
     completion:
       positional:
-        - ["$execute(git remote)"]
+        - ["$(git remote)"]
 
   # --- URLs et feeds ---
   - name: addurl
@@ -477,7 +477,7 @@ commands:
       --fast: avoid slow operations
     completion:
       flag:
-        to: ["$execute(git remote)"]
+        to: ["$(git remote)"]
 
   - name: import
     description: add a tree of files to the repository
@@ -487,7 +487,7 @@ commands:
       --no-content: do not import file contents
     completion:
       flag:
-        from: ["$execute(git remote)"]
+        from: ["$(git remote)"]
 
   # --- Vues ---
   - name: view
