@@ -1,0 +1,590 @@
+name: git-annex
+description: manage files with git, without checking their contents in
+
+persistentflags:
+  --force: allow actions that may lose annexed data
+  -F, --fast: avoid slow operations
+  -q, --quiet: avoid verbose output
+  -v, --verbose: allow verbose output (default)
+  -d, --debug: show debug messages
+  --no-debug: don't show debug messages
+  -j, --json: enable JSON output
+  --json-error-messages: include error messages in JSON
+  -h, --help: show help text
+
+commands:
+  # --- Workflow courant ---
+  - name: add
+    description: add files to annex
+    flags:
+      --batch: enable batch mode
+      -z: null delimited batch input
+      -u, --update: only update tracked files
+      --force-large: add all files to annex, ignoring other configuration
+      --force-small: add all files to git, ignoring other configuration
+      --no-check-gitignore: do not check .gitignore when adding files
+      --dry-run: don't make changes, but show what would be done
+    completion:
+      positionalany: ["$files"]
+
+  - name: get
+    description: get content of annexed files
+    flags:
+      -f, --from=: source remote
+      -a, --auto: automatic mode
+      -w, --wanted: operate on preferred content
+      --incomplete: resume previous downloads
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      -U, --unused: operate on files found by last run of git-annex unused
+      --key=: operate on specified key
+      --failed: operate on files that recently failed
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+      positionalany: ["$files"]
+
+  - name: drop
+    description: remove content of files from repository
+    flags:
+      -f, --from=: drop content from a remote
+      -a, --auto: automatic mode
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      -U, --unused: operate on files found by last run of git-annex unused
+      --key=: operate on specified key
+      --failed: operate on files that recently failed
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+      positionalany: ["$files"]
+
+  - name: copy
+    description: copy content of files to/from another repository
+    flags:
+      -f, --from=: source remote
+      -t, --to=: destination remote
+      --from-anywhere: from any remote
+      -a, --auto: automatic mode
+      -w, --wanted: operate on preferred content
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      -U, --unused: operate on files found by last run of git-annex unused
+      --key=: operate on specified key
+      --failed: operate on files that recently failed
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+        to: ["$execute(git remote)"]
+      positionalany: ["$files"]
+
+  - name: move
+    description: move content of files to/from another repository
+    flags:
+      -f, --from=: source remote
+      -t, --to=: destination remote
+      --from-anywhere: from any remote
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      -U, --unused: operate on files found by last run of git-annex unused
+      --key=: operate on specified key
+      --failed: operate on files that recently failed
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+        to: ["$execute(git remote)"]
+      positionalany: ["$files"]
+
+  - name: sync
+    description: synchronize local repository with remotes
+    flags:
+      -a, --only-annex: do not operate on git branches
+      --not-only-annex: operate on git branches as well as annex
+      --commit: commit changes to git
+      --no-commit: avoid git commit
+      -m, --message=: commit message
+      --no-pull: avoid git pulls from remotes
+      --no-push: avoid git pushes to remotes
+      --content: transfer annexed file contents
+      -g, --no-content: do not transfer annexed file contents
+      -C, --content-of=: transfer contents of annexed files in a given path
+      --cleanup: remove synced/ branches
+      -A, --all: operate on all versions of all files
+      --no-resolvemerge: do not automatically resolve merge conflicts
+      --allow-unrelated-histories: allow merging unrelated histories
+    completion:
+      positionalany: ["$execute(git remote)"]
+
+  - name: push
+    description: push content to remotes
+    flags:
+      -a, --only-annex: do not operate on git branches
+      --not-only-annex: operate on git branches as well as annex
+      --content: transfer annexed file contents
+      -g, --no-content: do not transfer annexed file contents
+      -C, --content-of=: transfer contents of annexed files in a given path
+      --cleanup: remove synced/ branches
+      -A, --all: operate on all versions of all files
+    completion:
+      positionalany: ["$execute(git remote)"]
+
+  - name: pull
+    description: pull content from remotes
+    flags:
+      -a, --only-annex: do not operate on git branches
+      --not-only-annex: operate on git branches as well as annex
+      --content: transfer annexed file contents
+      -g, --no-content: do not transfer annexed file contents
+      -C, --content-of=: transfer contents of annexed files in a given path
+      -A, --all: operate on all versions of all files
+      --no-resolvemerge: do not automatically resolve merge conflicts
+      --allow-unrelated-histories: allow merging unrelated histories
+    completion:
+      positionalany: ["$execute(git remote)"]
+
+  - name: assist
+    description: add files and sync changes with remotes
+    completion:
+      positionalany: ["$execute(git remote)"]
+
+  - name: mirror
+    description: mirror content of files to/from another repository
+    flags:
+      -f, --from=: source remote
+      -t, --to=: destination remote
+      -A, --all: operate on all versions of all files
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+        to: ["$execute(git remote)"]
+
+  - name: satisfy
+    description: transfer and drop content as configured
+    completion:
+      positionalany: ["$execute(git remote)"]
+
+  - name: put
+    description: send content of files to other repositories
+    completion:
+      positionalany: ["$execute(git remote)"]
+
+  # --- Etat et information ---
+  - name: status
+    description: show the working tree status (deprecated, use git status)
+    flags:
+      --ignore-submodules=: passed on to git status
+    completion:
+      positionalany: ["$files"]
+
+  - name: info
+    description: information about an item or the repository
+    flags:
+      --bytes: display file sizes in bytes
+      --batch: enable batch mode
+      -z: null delimited batch input
+      --autoenable: list special remotes configured to autoenable
+      --dead-repositories: list repositories marked as dead
+      --show=: limit info output
+    completion:
+      positionalany: ["$files"]
+
+  - name: find
+    description: lists available files
+    flags:
+      --format=: control format of output
+      --print0: use nulls to separate output
+      --branch=: operate on files in the specified branch or treeish
+      --batch: enable batch mode
+      -z: null delimited batch input
+    completion:
+      positionalany: ["$files"]
+
+  - name: whereis
+    description: lists repositories that have file content
+    flags:
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      -U, --unused: operate on files found by last run of git-annex unused
+      --key=: operate on specified key
+      --failed: operate on files that recently failed
+      --format=: control format of output
+    completion:
+      positionalany: ["$files"]
+
+  - name: list
+    description: show which remotes contain files
+    flags:
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+    completion:
+      positionalany: ["$files"]
+
+  - name: log
+    description: shows location log
+    completion:
+      positionalany: ["$files"]
+
+  - name: unused
+    description: look for unused file content
+    flags:
+      -f, --from=: check remote
+      --used-refspec=: refs to consider used
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+
+  - name: whereused
+    description: lists repositories that have file content
+    flags:
+      --key=: operate on specified key
+      -A, --all: operate on all versions of all files
+      --unused: check keys found by git-annex unused
+
+  # --- Modification ---
+  - name: unlock
+    description: unlock files for modification
+    completion:
+      positionalany: ["$files"]
+
+  - name: edit
+    description: same as unlock
+    completion:
+      positionalany: ["$files"]
+
+  - name: lock
+    description: undo unlock command
+    completion:
+      positionalany: ["$files"]
+
+  - name: metadata
+    description: sets or gets metadata of a file
+    flags:
+      -s, --set=: set metadata field=value
+      -g, --get=: get metadata field
+      -r, --remove=: remove metadata field
+      -t, --tag=: set tag
+      -u, --unset-tag=: remove tag
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      --key=: operate on specified key
+    completion:
+      positionalany: ["$files"]
+
+  - name: rekey
+    description: change keys used for files
+    completion:
+      positionalany: ["$files"]
+
+  - name: migrate
+    description: switch data to different backend
+    flags:
+      --backend=: backend to use
+      -A, --all: operate on all versions of all files
+    completion:
+      flag:
+        backend: ["SHA256E", "SHA256", "SHA512E", "SHA512", "SHA1E", "SHA1", "MD5E", "MD5", "WORM", "URL"]
+      positionalany: ["$files"]
+
+  # --- Vérification / réparation ---
+  - name: fsck
+    description: find and fix problems
+    flags:
+      -f, --from=: check remote
+      -S, --incremental: start an incremental fsck
+      -m, --more: continue an incremental fsck
+      --incremental-schedule=: schedule incremental fsck (e.g. 30d)
+      -A, --all: operate on all versions of all files
+      --branch=: operate on files in the specified branch or treeish
+      -U, --unused: operate on files found by last run of git-annex unused
+      --key=: operate on specified key
+      --failed: operate on files that recently failed
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+      positionalany: ["$files"]
+
+  - name: repair
+    description: recover broken git repository
+
+  - name: expire
+    description: expire inactive repositories
+
+  - name: fix
+    description: fix up pointers to annexed content
+    completion:
+      positionalany: ["$files"]
+
+  # --- Initialisation et remotes ---
+  - name: init
+    description: initialize git-annex
+    flags:
+      --version=: override default annex.version
+      --autoenable: only enable special remotes configured with autoenable
+      --no-autoenable: do not enable special remotes configured with autoenable
+
+  - name: uninit
+    description: de-initialize git-annex and clean out repository
+
+  - name: reinit
+    description: initialize repository, reusing old UUID
+
+  - name: initremote
+    description: creates a special (non-git) remote
+    flags:
+      --sameas=: make remote share storage with another
+      --with-url: "configure remote with an annex:: url"
+      --whatelse: describe other configuration parameters
+      --private: keep special remote information out of git-annex branch
+
+  - name: enableremote
+    description: enables git-annex to use a remote
+    flags:
+      --with-url: "configure remote with an annex:: url"
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: disableremote
+    description: stop using a remote
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: renameremote
+    description: changes name of special remote
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: configremote
+    description: changes special remote configuration
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: describe
+    description: change description of a repository
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  # --- Configuration ---
+  - name: config
+    description: configuration stored in git-annex branch
+    flags:
+      --set=: set configuration NAME=VALUE
+      --get=: get configuration
+      --unset=: unset configuration
+      --show-origin=: explain where a value is configured
+      --for-file=: filename to check for in gitattributes
+
+  - name: wanted
+    description: get or set preferred content expression
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: groupwanted
+    description: get or set groupwanted expression
+
+  - name: required
+    description: get or set required content expression
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: numcopies
+    description: configure desired number of copies
+
+  - name: mincopies
+    description: configure minimum number of copies
+
+  - name: group
+    description: add a repository to a group
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: ungroup
+    description: remove a repository from a group
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: schedule
+    description: get or set scheduled jobs
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: vicfg
+    description: edit configuration in git-annex branch
+
+  # --- Trust ---
+  - name: trust
+    description: trust a repository
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: untrust
+    description: do not trust a repository
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: semitrust
+    description: return repository to default trust level
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  - name: dead
+    description: hide a lost repository or key
+    completion:
+      positional:
+        - ["$execute(git remote)"]
+
+  # --- URLs et feeds ---
+  - name: addurl
+    description: add urls to annex
+    flags:
+      --file=: save to file
+      --pathdepth=: path depth
+      --prefix=: add prefix to filename
+      --suffix=: add suffix to filename
+      --relaxed: skip size check
+      --raw: disable special handling for some urls
+      --batch: enable batch mode
+      -z: null delimited batch input
+
+  - name: rmurl
+    description: record file is not available at url
+    completion:
+      positionalany: ["$files"]
+
+  - name: importfeed
+    description: import files from podcast feeds
+    flags:
+      --force: reimport even if already present
+
+  # --- Import / Export ---
+  - name: export
+    description: export a tree of files to a special remote
+    flags:
+      -t, --to=: destination remote
+      --tracking: configure remote to track exported tree
+      --fast: avoid slow operations
+    completion:
+      flag:
+        to: ["$execute(git remote)"]
+
+  - name: import
+    description: add a tree of files to the repository
+    flags:
+      -f, --from=: source remote
+      --content: import file contents
+      --no-content: do not import file contents
+    completion:
+      flag:
+        from: ["$execute(git remote)"]
+
+  # --- Vues ---
+  - name: view
+    description: enter a view branch
+
+  - name: vadd
+    description: add subdirs to current view
+
+  - name: vfilter
+    description: filter current view
+
+  - name: vpop
+    description: switch back to previous view
+
+  - name: vcycle
+    description: switch view to next layout
+
+  # --- Ajustement ---
+  - name: adjust
+    description: enter adjusted branch
+    flags:
+      --unlock: enter unlocked adjusted branch
+      --lock: enter locked adjusted branch
+      --hide-missing: hide missing files
+      --unlock-present: unlock files that are present
+
+  # --- Divers ---
+  - name: version
+    description: show version info
+
+  - name: help
+    description: display help
+    completion:
+      positional:
+        - ["add", "get", "drop", "copy", "move", "sync", "push", "pull",
+           "lock", "unlock", "edit", "fsck", "find", "whereis", "info",
+           "status", "init", "initremote", "enableremote", "disableremote",
+           "config", "wanted", "group", "numcopies", "mincopies", "metadata",
+           "migrate", "import", "export", "addurl", "rmurl", "trust",
+           "untrust", "semitrust", "dead", "repair", "unused", "log",
+           "list", "map", "view", "adjust", "vicfg", "version", "help"]
+
+  - name: map
+    description: generate map of repositories
+
+  - name: unannex
+    description: undo accidental add command
+    completion:
+      positionalany: ["$files"]
+
+  - name: reinject
+    description: inject content of file back into annex
+    completion:
+      positionalany: ["$files"]
+
+  - name: dropunused
+    description: drop unused file content
+
+  - name: addunused
+    description: add back unused files
+
+  - name: inprogress
+    description: access files while they're being downloaded
+    completion:
+      positionalany: ["$files"]
+
+  - name: merge
+    description: merge changes from remotes
+
+  - name: resolvemerge
+    description: resolve merge conflicts
+
+  - name: forget
+    description: prune git-annex branch history
+    flags:
+      --drop-dead: remove info about dead repositories
+
+  - name: upgrade
+    description: upgrade repository
+
+  - name: test
+    description: run built-in test suite
+
+  - name: assistant
+    description: daemon to add files and automatically sync changes
+
+  - name: watch
+    description: daemon to watch for changes and autocommit
+
+  - name: webapp
+    description: launch webapp
+
+  - name: p2p
+    description: configure peer-2-peer links between repositories
+
+  - name: multicast
+    description: multicast file distribution
+
+  - name: enable-tor
+    description: enable tor hidden service
