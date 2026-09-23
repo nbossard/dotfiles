@@ -1,0 +1,31 @@
+# Liste des URLs de la page d'accueil Firefox
+# Une URL par ligne - les lignes commençant par # sont ignorées
+# Séparateur Firefox : | (géré automatiquement par le Makefile)
+
+# Dinootoo
+https://liveintelligence.ai.orange/
+
+# -- mails --
+https://mail01.orange.fr/appsuite/#!&app=io.ox/mail&folder=default0/INBOX
+https://outlook.office.com
+https://simplelogin.io/
+
+# -- domotique --
+http://www.machboboss.ovh/index.php
+# Zigbee2mqtt
+http://192.168.1.4:8080/#/
+
+# -- my security partner --
+https://gitlab.tech.orange/my-security-partner/scam-report/-/boards
+https://webbotinterface.dev.assistantcyber.com/
+https://rp.prod.assistantcyber.com/static/ac-monitoring-prod.html
+# dashboard status prod
+https://rp.prod.assistantcyber.com/static/ac-monitoring-prod.html
+# swaggers
+http://localhost:3001/api-docs/
+https://scamreport.dev.assistantcyber.com/api-docs/
+https://scamreport.qualif.assistantcyber.com/api-docs/
+https://scamreport.prod.assistantcyber.com/api-docs/
+
+# -- others --
+https://gitlab.tech.orange/nicolas.bossard/opencode-tp

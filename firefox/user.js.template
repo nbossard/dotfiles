@@ -9,7 +9,7 @@ user_pref("browser.startup.page", 1);
 
 // Home page(s) - séparées par | (pipe)
 // Editer homepage_urls.txt pour modifier la liste
-user_pref("browser.startup.homepage", "https://mail01.orange.fr/appsuite/#!&app=io.ox/mail&folder=default0/INBOX|https://outlook.office.com|https://simplelogin.io/|http://www.machboboss.ovh/index.php|https://gitlab.tech.orange/my-security-partner/scam-report/-/boards|https://webbotinterface.dev.assistantcyber.com/|https://rp.prod.assistantcyber.com/static/ac-monitoring-prod.html|https://gitlab.tech.orange/nicolas.bossard/opencode-tp");
+user_pref("browser.startup.homepage", "%%HOMEPAGE%%");
 
 // Open homepage in new tabs instead of replacing current tab
 user_pref("browser.startup.homepage_override.mstone", "ignore");
