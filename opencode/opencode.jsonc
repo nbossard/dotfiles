@@ -21,8 +21,33 @@
           "limit": { "output": 64000, "context": 200000 },
           "cost": { "input": 1, "output": 5 }
         },
-        "vertex_ai/claude-sonnet-4-5": {
-          "name": "Claude Sonnet 4.5 - équilibré - ⚠️tarif iso 4.6",
+        "vertex_ai/claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6 - équilibré",
+          "family": "Claude",
+          "limit": { "output": 64000, "context": 200000 },
+          "cost": { "input": 3, "output": 15 },
+          "variants": {
+            "default": {
+              "thinking": {
+                "type": "disabled"
+              }
+            },
+            "thinking_default": {
+              "thinking": {
+                "type": "enabled",
+                "budgetTokens": 16000
+              }
+            },
+            "max_thinking": {
+              "thinking": {
+                "type": "enabled",
+                "budgetTokens": 32000
+              }
+            }
+          }
+        },
+        "vertex_ai/claude-sonnet-5": {
+          "name": "Claude Sonnet 5 - équilibré",
           "family": "Claude",
           "limit": { "output": 64000, "context": 200000 },
           "cost": { "input": 3, "output": 15 },
@@ -58,10 +83,11 @@
           "limit": { "output": 64000, "context": 200000 },
           "cost": { "input": 5, "output": 25 }
         },
-        "vertex_ai/claude3.5-sonnet-v2": {
-          "name": "Claude Sonnet 3.5",
+        "vertex_ai/claude-opus-4-7": {
+          "name": "Claude Opus 4.7 - puissant cher",
           "family": "Claude",
-          "limit": { "output": 8192, "context": 200000 }
+          "limit": { "output": 64000, "context": 200000 },
+          "cost": { "input": 5, "output": 25 }
         },
         "vertex_ai/gemini-2.0-flash": {
           "name": "Gemini 2 Flash",
