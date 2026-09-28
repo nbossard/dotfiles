@@ -103,6 +103,11 @@
           "name": "GPT 5.2 Codex - Pour la génération de code",
           "family": "GPT",
           "cost": { "input": 1.75, "output": 14 }
+        },
+        "openai/gpt-6-luna": {
+          "name": "GPT 6 luna - Pas cher du tout",
+          "family": "GPT",
+          "cost": { "input": 0.11, "output": 0.55 }
         }
       }
     },
