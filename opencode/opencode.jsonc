@@ -283,6 +283,7 @@
   },
   "agent": {
     "plan": {
+      "color": "#00AA00",
       "permission": {
         "skill": {
           "plannotator-*": "deny",
@@ -295,6 +296,7 @@
       }
     },
     "build": {
+      "color": "#990000",
       "permission": {
         "bash": {
           "which*": "allow",
