@@ -89,8 +89,8 @@
           "limit": { "output": 64000, "context": 200000 },
           "cost": { "input": 5, "output": 25 }
         },
-        "vertex_ai/gemini-2.0-flash": {
-          "name": "Gemini 2 Flash",
+        "vertex_ai/gemini-3.7-flash": {
+          "name": "Gemini 3.7 Flash",
           "family": "Gemini",
           "limit": { "output": 8192, "context": 1048576 }
         },
