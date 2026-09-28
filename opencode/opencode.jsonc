@@ -4,7 +4,9 @@
   "plugin": [
     "@franlol/opencode-md-table-formatter@latest", // markdown tables formatter
     "@mohak34/opencode-notifier@latest",        // notification when a command is finished
-    ["@plannotator/opencode@latest", { "workflow": "manual" }] // plannotator plugin for commenting plans
+    ["@plannotator/opencode@latest", { "workflow": "manual" }], // plannotator plugin for commenting plans
+    "@leohenon/opencode-vim-plugin",
+    // "@slkiser/opencode-quota", // display of the quota (for github copilot)
   ],
   "provider": {
     "llmproxy": {
